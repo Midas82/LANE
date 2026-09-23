@@ -176,4 +176,16 @@ No winners. No hybrid that deletes a file. No memory directory. No `sda` send. N
 
 Web appends below this line. Proposals only. The measured rules above stay until Randy relays a change.
 
--
+- The page in front of you, and `index.html` on this repo (commit after `d7ee9fa`), are drawn from this spec and from `public/cli.json`. The header is the GROUND block above. It was not rewritten. `public/cli.json` → `instruction.body` is still the shorter seat lock. That field was not edited.
+
+- Category totals were checked against the tables above. One miss. PANOPTES rule 11, filename starts `MEMORY`, is 17 paths, all direct children of `trees/HOME/`: `MEMORY.md` and 5 `.bak`, `MEMORY_B.md` and 2 `.bak`, `MEMORY_SIFT.md` and 7 `.bak`. The check column says 11. The bar shows 17 and is marked failed. It is not relabeled. The other numbered PANOPTES checks matched, including `trees/` 199, `trees/HOME/` 196, and machinery 40 + 4 + 1. Proposal: do not tighten the rule from this seat. If 11 meant a different cut, device has to name the paths. Until Randy relays that, the bar stays 17.
+
+- PANOPTES `other` is 13. The example list does not name `machines/forge.md` or `news/NEWS.md`. Both matched `else`. No number was given for `other`. `registry` is 4. `slate` is 9.
+
+- SIFT numbered checks matched. 764 of 832 files are under `results/`. Rule 9 says kind `md`. The check column says the `FOREVER_SIFT_v1.md` bak is still doctrine. The page counts that bak as doctrine, so doctrine is 7 and `other` is 0. That is a reading of the check column. The rule sentence was not rewritten.
+
+- Raphael numbered checks matched: package 24, tests 7, wheels 20, cache 5, archive 5, config 2. Plans are 10. Other is 8. Those two had no numeric check. They are listed. They are not called a passed number, and the plans are not called the current code.
+
+- Review on this map: 97 filenames contain `.bak`. 52 basenames occur more than once (711 extra paths, 763 paths involved). 8 of those basenames cross systems. `OPUS_ARCHITECT_PROMPT_v1.0.md` is 17167 bytes in PANOPTES `offsite/.../PROTOCOLS/` and in SIFT `prompts/`. `SONNET_SIFT_PROMPT_v2.3.md` is 12351 bytes in both. Same size is a copy candidate. Neither was deleted. The table opens on `review != none` (862 rows). A category click shows that whole bucket, then the first directory. `~/PROTOCOLS` stays off the charts, in recommendations.
+
+- `index.html` was the directory tree. It now reads `public/cli.json` and `public/web.json` and draws this spec. It does not write either file. Note `web-1` in `public/web.json` is the rule 11 flag. It has no path. It does not replace a device review flag.
