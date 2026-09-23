@@ -254,7 +254,7 @@ export function Measured() {
               bak is 0 on <span className="font-mono">{row.root}</span>.
             </li>
           ))}
-          <li>{allHold ? "Every row\u2019s parts sum to its file count." : "A row does not sum. See the card."}</li>
+          <li>{allHold ? "Every row's parts sum to its file count." : "A row does not sum. See the card."}</li>
         </ul>
       </div>
     </section>
