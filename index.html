@@ -3,194 +3,525 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LANE — file map</title>
+<title>LANE</title>
 <style>
-  :root { --bg:#141311; --fg:#ebe4d6; --muted:#a39b8f; --line:#3a342c; --brass:#d4b36a; --surface:#1e1c18; }
+  :root { --bg:#141311; --plot:#0e0d0b; --fg:#ebe4d6; --muted:#a39b8f; --line:#3a342c; --brass:#d4b36a; --py:#f3e6c4; --surface:#1e1c18; }
   * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.45 Georgia, serif; }
-  header, main { max-width:960px; margin:0 auto; padding:24px 16px; }
-  h1 { font-size:2.4rem; margin:0 0 8px; }
-  h2 { font-size:1.4rem; margin:28px 0 8px; }
-  p, li { color:var(--fg); }
-  .muted { color:var(--muted); }
-  .rule { border-left:3px solid var(--brass); padding:8px 12px; color:var(--muted); }
-  pre { white-space:pre-wrap; background:var(--surface); border:1px solid var(--line); padding:12px; font:13px/1.4 ui-monospace, monospace; }
-  table { width:100%; border-collapse:collapse; font:13px/1.35 ui-monospace, monospace; }
-  th, td { text-align:left; padding:4px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
-  td.n, th.n { text-align:right; }
-  input { width:100%; background:var(--surface); color:var(--fg); border:1px solid var(--line); padding:8px; font:14px ui-monospace, monospace; }
-  details { border:1px solid var(--line); margin:6px 0; background:var(--surface); }
-  summary { cursor:pointer; padding:8px 10px; }
-  .cols { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  @media (max-width:800px) { .cols { grid-template-columns:1fr; } }
-  .card { border:1px solid var(--line); padding:10px 12px; margin:8px 0; }
-  .bar { height:10px; background:var(--brass); margin-top:4px; }
-  nav a { color:var(--brass); margin-right:12px; }
+  html { background: var(--bg); }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.45 Georgia, "Iowan Old Style", serif; }
+  a { color: var(--brass); }
+  button, select, input { font: 13px/1.3 ui-monospace, monospace; color: var(--fg); background: var(--bg); border: 1px solid var(--line); }
+  button { min-height: 44px; cursor: pointer; }
+  header.stick { position: sticky; top: 0; z-index: 2; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 12px 16px 28px; }
+  h1 { font-size: 2.4rem; font-weight: 500; margin: 18px 0 8px; }
+  h2 { font-size: 1.7rem; font-weight: 500; margin: 0 0 8px; }
+  h3 { font-size: 1.35rem; font-weight: 500; margin: 0; }
+  .muted { color: var(--muted); }
+  .mono { font: 13px/1.4 ui-monospace, monospace; }
+  pre.ground { margin: 8px 0 0; max-height: 9rem; overflow: auto; white-space: pre-wrap; background: var(--plot); border: 1px solid var(--line); padding: 10px 12px; font: 12px/1.45 ui-monospace, monospace; }
+  nav { display: flex; gap: 4px; overflow-x: auto; margin-top: 8px; }
+  nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; text-decoration: none; white-space: nowrap; }
+  section.block { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 28px; scroll-margin-top: 16rem; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .plot { background: var(--plot); border: 1px solid var(--line); padding: 12px; }
+  .barline { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: 8px; align-items: center; margin: 8px 0; }
+  .track { height: 14px; background: var(--surface); }
+  .fill { display: block; height: 14px; background: var(--brass); }
+  .fill.bytes { background: #8f7040; }
+  .cat { display: grid; gap: 4px; margin-top: 12px; }
+  .cat button { display: grid; grid-template-columns: minmax(8rem, 11rem) 1fr auto; gap: 8px; align-items: center; text-align: left; padding: 6px 8px; background: transparent; }
+  .cat button[aria-pressed="true"] { border-color: var(--brass); background: var(--surface); }
+  .cat button .fill { background: var(--brass); }
+  .cat button[aria-pressed="true"] .fill { background: var(--py); }
+  .fail { border: 1px dashed var(--line); padding: 10px 12px; margin-top: 10px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .stats button { text-align: left; padding: 12px; background: transparent; }
+  .stats button[aria-pressed="true"] { border-color: var(--brass); background: var(--surface); }
+  .stats strong { display: block; font: 28px/1.1 ui-monospace, monospace; margin: 4px 0; }
+  .filters { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+  label { display: grid; gap: 4px; }
+  input, select { min-height: 44px; padding: 0 8px; width: 100%; }
+  .chips { display: flex; gap: 6px; overflow-x: auto; margin-top: 10px; }
+  .row { width: 100%; display: grid; grid-template-columns: 6.5rem 9rem minmax(0,1fr) 3rem 6.5rem 5.5rem 5rem; gap: 8px; text-align: left; padding: 8px; background: transparent; border: 1px solid var(--line); margin-top: 6px; }
+  .row span { overflow-wrap: anywhere; }
+  .note { border: 1px solid var(--line); border-top: 0; padding: 8px 10px; margin-top: -7px; }
+  .card { border: 1px dashed var(--line); padding: 10px 12px; margin-top: 8px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .headrow { display: none; }
+  @media (max-width: 800px) {
+    .pair, .stats, .filters, .cols { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; }
+    .barline, .cat button { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 801px) {
+    .headrow { display: grid; grid-template-columns: 6.5rem 9rem minmax(0,1fr) 3rem 6.5rem 5.5rem 5rem; gap: 8px; padding: 0 8px; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <p class="muted">LANE · file map of the three · device writes the map · web writes notes</p>
-  <h1>LANE</h1>
-  <p class="rule" id="rule">Loading.</p>
-  <nav>
-    <a href="#instruction">Instruction</a>
-    <a href="#map">Map</a>
-    <a href="#more">More</a>
-    <a href="#board">Board</a>
-  </nav>
+<header class="stick">
+  <div class="wrap">
+    <p class="mono muted">Read this before you act</p>
+    <pre class="ground" id="ground">GROUND. Read this before you act. Stay in the seat you were given.
+
+Randy is the operator and the relay. He pastes, carries reports, and says go or no-go. He is not the seam chair. Do not give him another job title.
+
+Device is eyes and hands on the box. It measures. It writes public/cli.json. A path and a byte size are not a reading of the file. Unread stays unread. Device does not guess what a file means.
+
+Web is intel. It reads the map. It writes notes, marks, and plans only in public/web.json. It does not edit the map, the counts, the categories, or this prompt. It does not wander into a new system, a new root, or a winner.
+
+Seam chair is the CLI repair role on forge. It stays cold until Randy relays a repair.
+
+Three systems, not three brains. PANOPTES is the workflow: law, rule, guardrail, structure. SIFT excavates saved sessions. A listed file is often evidence of a path traveled. It does not take over the live file. Raphael is local intelligence at ~/midas-agent. It uses the workflow. It is not a second workflow. INGOT builder plus capsule is one seal tool and it is outside these three.
+
+Do not assume. Do not guess. Do not leave the lane. If two claims disagree, keep both. No winners. No merge by date. No new memory directory. No sda-send.</pre>
+    <nav>
+      <a href="#scale">Scale</a>
+      <a href="#category">Category</a>
+      <a href="#review">Review</a>
+      <a href="#table">Table</a>
+      <a href="#recs">Off the chart</a>
+      <a href="#board">Board</a>
+    </nav>
+  </div>
 </header>
-<main>
-  <section id="instruction">
-    <h2>Instruction</h2>
-    <p class="muted">Device updates this. Web reads it. Web does not edit it.</p>
-    <pre id="prompt"></pre>
+<main class="wrap">
+  <p class="muted" id="status">Loading the map.</p>
+  <section id="scale">
+    <h1>LANE</h1>
+    <p class="muted">Categories come from the path. The body was not read unless review is unread and the note says which part was read earlier. ~/PROTOCOLS is not on these charts.</p>
+    <div class="pair" id="scale-charts"></div>
   </section>
-  <section id="map">
-    <h2>Map</h2>
-    <p class="muted" id="look"></p>
-    <div id="bars"></div>
-    <p><input id="q" type="search" placeholder="Filter paths" aria-label="Filter paths"></p>
-    <div id="trees"></div>
+  <section class="block" id="category">
+    <h2>Category</h2>
+    <p class="muted">One chart per system. Bar length is files. The number beside a bar is bytes. A click shows that whole bucket in the table.</p>
+    <div id="cats"></div>
   </section>
-  <section id="more">
-    <h2>Recommendations</h2>
-    <p class="muted">Not added to the map. Randy relays one before it becomes a root.</p>
-    <div id="recs"></div>
+  <section class="block" id="review">
+    <h2>Review</h2>
+    <p class="muted">The table opens on the review set. These three filters replace it.</p>
+    <div class="stats" id="stats"></div>
   </section>
-  <section id="board">
+  <section class="block" id="table">
+    <h2>Table</h2>
+    <p class="mono muted" id="count"></p>
+    <button type="button" id="back">Back to review set</button>
+    <div class="filters">
+      <label>Path contains<input id="q" type="search"></label>
+      <label>System<select id="system"></select></label>
+      <label>Category<select id="category-select"></select></label>
+    </div>
+    <div class="chips" id="chips"></div>
+    <p class="mono muted" style="margin-top:14px">Columns: system, category, path, kind, bytes, device review, web mark.</p>
+    <div class="headrow mono muted"><span>system</span><span>category</span><span>path</span><span>kind</span><span>bytes</span><span>device review</span><span>web mark</span></div>
+    <div id="rows"></div>
+  </section>
+  <section class="block" id="recs">
+    <h2>Off the chart</h2>
+    <div id="rec-list"></div>
+  </section>
+  <section class="block" id="board">
     <h2>Board</h2>
-    <p class="muted">Left is device. Right is web. Neither side edits the other file.</p>
     <div class="cols">
       <div>
-        <h3>Device · public/cli.json</h3>
-        <div id="cli-notes"></div>
+        <h3 class="mono muted">Device</h3>
+        <div id="device"></div>
       </div>
       <div>
-        <h3>Web · public/web.json</h3>
-        <div id="web-notes"></div>
+        <h3 class="mono muted">Web</h3>
+        <div id="web"></div>
       </div>
     </div>
   </section>
 </main>
 <script>
-const q = document.getElementById("q");
+const ORDER = {
+  panoptes: ["snapshot","assay","lanes","machinery","sessions","law-feedback","memory-finding","memory-project","memory-reference","memory-user","memory-index","hardware","registry","slate","chaos","roundtable","remember","other"],
+  sift: ["ore-309","ore-cli-forge","ore-anvil","ore-other","prompts","cold","inputs","in-queue","doctrine","other"],
+  raphael: ["package","tests","wheels","cache","archive","config","plans","other"]
+};
+const EXPECT = {
+  panoptes: { snapshot:221, assay:82, lanes:14, machinery:45, sessions:26, "law-feedback":58, "memory-finding":56, "memory-project":36, "memory-reference":19, "memory-user":6, "memory-index":11, hardware:3, chaos:5, roundtable:9, remember:12 },
+  sift: { "ore-309":689, "ore-cli-forge":66, "ore-anvil":5, "ore-other":4, prompts:20, cold:21, inputs:19, "in-queue":1 },
+  raphael: { package:24, tests:7, wheels:20, cache:5, archive:5, config:2 }
+};
+const SLATES = ["THE_SLATE.md","PAN_SLATE_B.md","THE_SLATE_CHAOS.md","SLATE_CLEARED.md","SLATE_RETRACTED.md"];
+const UNREAD = {
+  "panoptes\0assay/INGOT_ASSAY_v1.md": "Body not read.",
+  "panoptes\0PAN_SLATE_B.md": "Lines 1–160 were read. Lines 161–1042 were not."
+};
+const state = { scope: "work", system: "", category: "", picked: null, dir: "", query: "", open: "" };
+let rows = [];
 let systems = [];
+let notes = [];
 
+function base(path) { const c = path.split("/"); return c[c.length - 1] || path; }
+function firstDir(path) { const i = path.indexOf("/"); return i === -1 ? "(top)" : path.slice(0, i); }
 function n(x) { return new Intl.NumberFormat("en-US").format(x); }
-
-function folders(files) {
-  const g = new Map();
-  for (const f of files) {
-    const i = f.path.indexOf("/");
-    const key = i === -1 ? "(top)" : f.path.slice(0, i);
-    if (!g.has(key)) g.set(key, []);
-    g.get(key).push(f);
-  }
-  return [...g.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+function slateName(filename) {
+  if (SLATES.includes(filename)) return true;
+  return SLATES.some((name) => filename.startsWith(name) && filename.includes(".bak"));
 }
-
-function draw() {
-  const needle = q.value.trim().toLowerCase();
-  const root = document.getElementById("trees");
-  root.replaceChildren();
-  for (const s of systems) {
-    const sec = document.createElement("section");
-    const h = document.createElement("h3");
-    const c = s.counts;
-    h.textContent = s.name + " · " + s.root + " · " + n(c.files) + " files · " + n(c.bytes) + " bytes";
-    sec.appendChild(h);
-    const p = document.createElement("p");
-    p.className = "muted";
-    p.textContent = s.words + " md " + c.md + " · py " + c.py + " · bak " + c.bak + " · other " + c.other;
-    sec.appendChild(p);
-    const shown = needle ? s.files.filter(f => f.path.toLowerCase().includes(needle)) : s.files;
-    for (const [name, rows] of folders(shown)) {
-      const d = document.createElement("details");
-      if (needle) d.open = true;
-      const sum = document.createElement("summary");
-      sum.textContent = name + " · " + rows.length;
-      d.appendChild(sum);
-      const table = document.createElement("table");
-      const body = document.createElement("tbody");
-      for (const f of rows) {
-        const tr = document.createElement("tr");
-        tr.innerHTML = "<td>" + f.path.replaceAll("<", "&lt;") + "</td><td>" + f.kind + "</td><td class='n'>" + n(f.bytes) + "</td>";
-        body.appendChild(tr);
-      }
-      table.appendChild(body);
-      d.appendChild(table);
-      sec.appendChild(d);
+function categoryFor(system, path, kind) {
+  const filename = base(path);
+  if (system === "panoptes") {
+    if (path.startsWith("offsite/")) return "snapshot";
+    if (path.startsWith("assay/")) return "assay";
+    if (path.startsWith("agents/")) return "lanes";
+    if (path.startsWith(".panoptes/") || path.startsWith("tools/") || path.startsWith("skills/")) return "machinery";
+    if (path.startsWith("Sessions/")) return "sessions";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("feedback_")) return "law-feedback";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("finding_")) return "memory-finding";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("project_")) return "memory-project";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("reference_")) return "memory-reference";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("user_")) return "memory-user";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("MEMORY")) return "memory-index";
+    if (path.startsWith("trees/HOME/") && filename.startsWith("hardware_")) return "hardware";
+    if (path.startsWith("trees/")) return "registry";
+    if (slateName(filename)) return "slate";
+    if (path.startsWith("chaos/")) return "chaos";
+    if (path.startsWith("roundtable/")) return "roundtable";
+    if (path.startsWith(".remember/")) return "remember";
+    return "other";
+  }
+  if (system === "sift") {
+    if (path.startsWith("results/the-309/")) return "ore-309";
+    if (path.startsWith("results/cli-forge/")) return "ore-cli-forge";
+    if (path.startsWith("results/anvil-legacy/")) return "ore-anvil";
+    if (path.startsWith("results/")) return "ore-other";
+    if (path.startsWith("prompts/")) return "prompts";
+    if (path.startsWith("COLD/")) return "cold";
+    if (path.startsWith("inputs/")) return "inputs";
+    if (path.startsWith("IN/")) return "in-queue";
+    if (!path.includes("/") && kind === "md") return "doctrine";
+    if (!path.includes("/") && filename.includes("FOREVER_SIFT_v1.md") && filename.includes(".bak")) return "doctrine";
+    return "other";
+  }
+  if (path.startsWith("midas_agent/")) return "package";
+  if (path.startsWith("tests/")) return "tests";
+  if (path.startsWith("wheels/")) return "wheels";
+  if (path.startsWith(".pytest_cache/")) return "cache";
+  if (path.startsWith("archive/")) return "archive";
+  if (path.startsWith("config/") || path.startsWith("docs/")) return "config";
+  if (!path.includes("/") && kind === "md") return "plans";
+  return "other";
+}
+function classify(blocks) {
+  const out = [];
+  for (const system of blocks) {
+    for (const file of system.files) {
+      out.push({
+        path: file.path, bytes: file.bytes, kind: file.kind,
+        system: system.id, systemName: system.name, root: system.root,
+        category: categoryFor(system.id, file.path, file.kind),
+        review: "none", note: ""
+      });
     }
-    root.appendChild(sec);
   }
+  const byName = new Map();
+  for (const row of out) {
+    const name = base(row.path);
+    const list = byName.get(name) || [];
+    list.push(row);
+    byName.set(name, list);
+  }
+  const dups = new Map();
+  for (const [name, list] of byName) {
+    if (list.length < 2) continue;
+    const systemsHere = [...new Set(list.map((row) => row.system))];
+    const sizes = new Set(list.map((row) => row.bytes));
+    dups.set(name, { count: list.length, systems: systemsHere, cross: systemsHere.length > 1, sameBytes: sizes.size === 1 });
+  }
+  for (const row of out) {
+    const unread = UNREAD[row.system + "\0" + row.path];
+    const dup = dups.get(base(row.path));
+    if (unread) { row.review = "unread"; row.note = unread; }
+    else if (row.path.includes(".bak") || base(row.path).includes(".bak")) { row.review = "bak"; row.note = "Alternate kept. Do not merge by date."; }
+    else if (dup) {
+      row.review = "duplicate";
+      const where = dup.cross ? " Cross-system: " + dup.systems.join(", ") + "." : " All in one system.";
+      const size = dup.sameBytes ? " Same byte size (" + row.bytes + "). Copy candidate, not a winner." : "";
+      row.note = "Filename occurs " + dup.count + " times." + where + size;
+    }
+  }
+  return out;
 }
-
-function notes(el, rows, empty) {
-  el.replaceChildren();
-  if (!rows || rows.length === 0) {
-    const p = document.createElement("p");
-    p.className = "muted";
-    p.textContent = empty;
-    el.appendChild(p);
-    return;
-  }
+function tally(systemId) {
+  const out = {};
   for (const row of rows) {
-    const card = document.createElement("article");
-    card.className = "card";
-    const t = document.createElement("p");
-    t.className = "muted";
-    t.textContent = (row.from || row.mark || "note") + " · " + (row.at || "");
-    const b = document.createElement("p");
-    b.textContent = row.body || row.subject || "";
-    card.append(t, b);
-    el.appendChild(card);
+    if (row.system !== systemId) continue;
+    const slot = out[row.category] || { files: 0, bytes: 0 };
+    slot.files += 1; slot.bytes += row.bytes; out[row.category] = slot;
+  }
+  return out;
+}
+function el(tag, text, className) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
+function filtered() {
+  let list = rows;
+  if (state.scope === "category" && state.picked) {
+    list = list.filter((row) => row.system === state.picked.system && row.category === state.picked.category);
+    if (state.dir) list = list.filter((row) => firstDir(row.path) === state.dir);
+  } else if (state.scope === "bak") list = list.filter((row) => base(row.path).includes(".bak"));
+  else if (state.scope === "names") list = list.filter((row) => dupNames.has(base(row.path)));
+  else if (state.scope === "cross") list = list.filter((row) => crossNames.has(base(row.path)));
+  else list = list.filter((row) => row.review !== "none");
+  if (state.scope !== "category") {
+    if (state.system) list = list.filter((row) => row.system === state.system);
+    if (state.category) list = list.filter((row) => row.category === state.category);
+  }
+  if (state.query) list = list.filter((row) => row.path.includes(state.query));
+  return list;
+}
+let dupNames = new Set();
+let crossNames = new Set();
+let extraPaths = 0;
+function drawScale() {
+  const host = document.getElementById("scale-charts");
+  host.replaceChildren();
+  const maxFiles = Math.max(...systems.map((s) => s.counts.files));
+  const maxBytes = Math.max(...systems.map((s) => s.counts.bytes));
+  host.append(scaleCard("Chart A", "files", "Bar length is file count.", "files", maxFiles));
+  host.append(scaleCard("Chart B", "bytes", "Not the file-count scale. Same axis would lie.", "bytes", maxBytes));
+}
+function scaleCard(title, unit, hint, key, max) {
+  const card = el("article", null, "plot");
+  card.append(el("p", title + " · " + unit, "mono muted"), el("p", hint));
+  for (const system of systems) {
+    const line = el("div", null, "barline");
+    line.append(el("span", system.name, "mono"));
+    const track = el("span", null, "track");
+    const fill = el("span", null, key === "bytes" ? "fill bytes" : "fill");
+    fill.style.width = Math.max(1, Math.round(100 * system.counts[key] / max)) + "%";
+    track.append(fill);
+    line.append(track, el("span", n(system.counts[key]), "mono muted"));
+    card.append(line);
+  }
+  return card;
+}
+function drawCats() {
+  const host = document.getElementById("cats");
+  host.replaceChildren();
+  for (const system of systems) {
+    const totals = tally(system.id);
+    const article = el("article", null, "card");
+    article.style.borderStyle = "solid";
+    article.append(el("h3", system.name), el("p", system.root, "mono muted"), el("p", system.words, "muted"));
+    const misses = [];
+    const expect = EXPECT[system.id] || {};
+    for (const [cat, want] of Object.entries(expect)) {
+      const got = totals[cat] ? totals[cat].files : 0;
+      if (got !== want) misses.push(cat + " is " + got + ", the check says " + want);
+    }
+    if (system.id === "panoptes" && totals["memory-index"] && totals["memory-index"].files !== 11) {
+      const onlyIndex = misses.length === 1 && misses[0].startsWith("memory-index");
+      article.append(el("p", "Rule 11 check failed. Filename starts MEMORY is " + totals["memory-index"].files + " on the map. The spec says 11. The bar says " + totals["memory-index"].files + ". It is not relabeled. " + (onlyIndex ? "The other numbered checks on this chart matched." : misses.join(". ")), "fail"));
+    } else if (misses.length) {
+      article.append(el("p", "Check failed. " + misses.join(". ") + ". The bars are the measured counts. They are not relabeled.", "fail"));
+    }
+    if (system.id === "sift") {
+      const siftRows = rows.filter((row) => row.system === "sift");
+      const under = siftRows.filter((row) => row.path.startsWith("results/")).length;
+      article.append(el("p", under + " of " + siftRows.length + " files are under results/. Ore is the mass.", "muted"));
+    }
+    if (system.id === "raphael") article.append(el("p", "Plans are the top markdown. They are not called the current code. The package is midas_agent/.", "muted"));
+    const list = el("div", null, "cat");
+    const max = Math.max(...ORDER[system.id].map((cat) => totals[cat] ? totals[cat].files : 0));
+    for (const cat of ORDER[system.id]) {
+      if (!totals[cat]) continue;
+      const pressed = state.picked && state.picked.system === system.id && state.picked.category === cat;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-pressed", pressed ? "true" : "false");
+      const name = el("span", cat, "mono");
+      const track = el("span", null, "track");
+      const fill = el("span", null, "fill");
+      fill.style.width = Math.max(1, Math.round(100 * totals[cat].files / max)) + "%";
+      track.append(fill);
+      button.append(name, track, el("span", n(totals[cat].files) + " files · " + n(totals[cat].bytes) + " bytes", "mono muted"));
+      button.addEventListener("click", () => pick(system.id, cat));
+      list.append(button);
+    }
+    article.append(list);
+    host.append(article);
   }
 }
+function drawStats() {
+  const host = document.getElementById("stats");
+  host.replaceChildren();
+  const bak = rows.filter((row) => base(row.path).includes(".bak")).length;
+  const specs = [
+    ["bak", "bak", String(bak), "Filename contains .bak. Alternate kept. Not merged by date."],
+    ["names", "basenames", String(dupNames.size), extraPaths + " extra paths. Same size is a copy candidate, not a winner."],
+    ["cross", "cross-system", String(crossNames.size), "Those filenames are not all in one system."]
+  ];
+  for (const [scope, label, value, detail] of specs) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.setAttribute("aria-pressed", state.scope === scope ? "true" : "false");
+    button.append(el("span", label, "mono muted"), el("strong", value), el("span", detail, "muted"));
+    button.addEventListener("click", () => { state.scope = scope; state.picked = null; state.dir = ""; draw(); document.getElementById("table").scrollIntoView(); });
+    host.append(button);
+  }
+}
+function pick(systemId, cat) {
+  state.picked = { system: systemId, category: cat };
+  state.scope = "category";
+  state.dir = "";
+  state.query = "";
+  state.open = "";
+  document.getElementById("q").value = "";
+  draw();
+  document.getElementById("table").scrollIntoView();
+}
+function draw() {
+  drawCats();
+  drawStats();
+  const list = filtered();
+  const count = document.getElementById("count");
+  let suffix = "";
+  if (state.scope === "work") suffix = " · review set";
+  if (state.scope === "category" && state.picked) suffix = " · " + state.picked.system + " / " + state.picked.category;
+  if (state.scope === "bak") suffix = " · bak";
+  if (state.scope === "names") suffix = " · repeated basenames";
+  if (state.scope === "cross") suffix = " · cross-system";
+  count.textContent = n(list.length) + " shown" + suffix;
+  const chips = document.getElementById("chips");
+  chips.replaceChildren();
+  if (state.scope === "category" && state.picked) {
+    const counts = new Map();
+    for (const row of rows) {
+      if (row.system !== state.picked.system || row.category !== state.picked.category) continue;
+      const key = firstDir(row.path);
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    const all = document.createElement("button");
+    all.type = "button";
+    all.textContent = "All in bucket";
+    all.addEventListener("click", () => { state.dir = ""; draw(); });
+    chips.append(all);
+    for (const [name, num] of [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = name + " " + num;
+      if (state.dir === name) button.style.borderColor = "var(--brass)";
+      button.addEventListener("click", () => { state.dir = name; draw(); });
+      chips.append(button);
+    }
+  }
+  const host = document.getElementById("rows");
+  host.replaceChildren();
+  for (const row of list) {
+    const key = row.system + ":" + row.path;
+    const marks = notes.filter((note) => note.path === row.path);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "row mono";
+    button.setAttribute("aria-expanded", state.open === key ? "true" : "false");
+    for (const text of [row.systemName, row.category, row.path, row.kind, n(row.bytes), row.review, marks.length ? marks.map((note) => note.mark).join(", ") : "—"]) {
+      button.append(el("span", text));
+    }
+    button.addEventListener("click", () => { state.open = state.open === key ? "" : key; draw(); });
+    host.append(button);
+    if (state.open === key) host.append(el("p", row.note || "No device note.", "note"));
+  }
+}
+function fillSelects() {
+  const system = document.getElementById("system");
+  system.replaceChildren(el("option", "All three"));
+  system.firstChild.value = "";
+  for (const block of systems) {
+    const option = el("option", block.name);
+    option.value = block.id;
+    system.append(option);
+  }
+  const category = document.getElementById("category-select");
+  const refresh = () => {
+    category.replaceChildren(el("option", "Any"));
+    category.firstChild.value = "";
+    const names = state.system ? ORDER[state.system] : [...new Set(Object.values(ORDER).flat())];
+    for (const name of names) {
+      const option = el("option", name);
+      option.value = name;
+      category.append(option);
+    }
+  };
+  refresh();
+  system.addEventListener("change", () => {
+    if (state.scope === "category") return;
+    state.system = system.value;
+    state.category = "";
+    refresh();
+    draw();
+  });
+  category.addEventListener("change", () => {
+    if (state.scope === "category") return;
+    state.category = category.value;
+    draw();
+  });
+}
+document.getElementById("q").addEventListener("input", (event) => { state.query = event.target.value; draw(); });
+document.getElementById("back").addEventListener("click", () => {
+  state.scope = "work"; state.picked = null; state.dir = ""; state.system = ""; state.category = ""; state.query = ""; state.open = "";
+  document.getElementById("q").value = "";
+  document.getElementById("system").value = "";
+  document.getElementById("category-select").value = "";
+  draw();
+});
 
-fetch("public/cli.json").then(r => r.json()).then(cli => {
-  document.getElementById("rule").textContent = cli.rule;
-  document.getElementById("prompt").textContent = cli.instruction.body;
-  document.getElementById("look").textContent = cli.look;
+Promise.all([
+  fetch("public/cli.json").then((r) => r.json()),
+  fetch("public/web.json").then((r) => r.json())
+]).then(([cli, web]) => {
   systems = cli.systems;
-  const max = Math.max(...systems.map(s => s.counts.files));
-  const bars = document.getElementById("bars");
-  for (const s of systems) {
-    const row = document.createElement("div");
-    row.style.margin = "8px 0";
-    const label = document.createElement("div");
-    label.textContent = s.name + "  " + n(s.counts.files) + " files  ·  " + n(s.counts.bytes) + " bytes";
-    const bar = document.createElement("div");
-    bar.className = "bar";
-    bar.style.width = Math.max(2, Math.round(100 * s.counts.files / max)) + "%";
-    row.append(label, bar);
-    bars.appendChild(row);
+  rows = classify(systems);
+  notes = Array.isArray(web.notes) ? web.notes : [];
+  const by = new Map();
+  for (const row of rows) {
+    const name = base(row.path);
+    const list = by.get(name) || [];
+    list.push(row);
+    by.set(name, list);
   }
-  const recs = document.getElementById("recs");
+  for (const [name, list] of by) {
+    if (list.length < 2) continue;
+    dupNames.add(name);
+    extraPaths += list.length - 1;
+    if (new Set(list.map((row) => row.system)).size > 1) crossNames.add(name);
+  }
+  document.getElementById("status").textContent = cli.look;
+  drawScale();
+  fillSelects();
+  const recs = document.getElementById("rec-list");
   for (const rec of cli.recommendations) {
-    const card = document.createElement("article");
-    card.className = "card";
-    const t = document.createElement("p");
-    t.textContent = rec.path + " · " + rec.status;
-    const b = document.createElement("p");
-    b.className = "muted";
-    b.textContent = rec.why;
-    card.append(t, b);
-    recs.appendChild(card);
+    const card = el("article", null, "card");
+    card.append(el("p", rec.status, "mono muted"), el("h3", rec.path, "mono"), el("p", rec.why));
+    recs.append(card);
   }
-  notes(document.getElementById("cli-notes"), cli.messages, "No device messages.");
+  const device = document.getElementById("device");
+  for (const message of cli.messages) {
+    const card = el("article", null, "card");
+    card.style.borderStyle = "solid";
+    card.append(el("p", message.from + " · " + message.at, "mono muted"), el("p", message.body));
+    device.append(card);
+  }
+  const webHost = document.getElementById("web");
+  if (!notes.length) webHost.append(el("p", "No web notes yet.", "muted"));
+  for (const note of notes) {
+    const card = el("article", null, "card");
+    card.style.borderStyle = "solid";
+    card.append(el("p", note.mark + (note.path ? " · " + note.path : ""), "mono muted"), el("h3", note.subject), el("p", note.body));
+    webHost.append(card);
+  }
   draw();
 }).catch(() => {
-  document.getElementById("rule").textContent = "public/cli.json did not load.";
+  document.getElementById("status").textContent = "public/cli.json or public/web.json did not load.";
 });
-
-fetch("public/web.json").then(r => r.json()).then(web => {
-  notes(document.getElementById("web-notes"), web.notes, "No web notes yet. Web appends them in public/web.json and does not edit the map.");
-}).catch(() => {
-  notes(document.getElementById("web-notes"), [], "public/web.json did not load.");
-});
-
-q.addEventListener("input", draw);
 </script>
 </body>
 </html>
