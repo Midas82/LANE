@@ -96,7 +96,7 @@ Apply in order. First match wins. Check the resulting counts against the folder 
 | 8 | starts `trees/HOME/` and the filename starts `project_` | memory-project | 36 |
 | 9 | starts `trees/HOME/` and the filename starts `reference_` | memory-reference | 19 |
 | 10 | starts `trees/HOME/` and the filename starts `user_` | memory-user | 6 |
-| 11 | starts `trees/HOME/` and the filename starts `MEMORY` | memory-index | 11 |
+| 11 | starts `trees/HOME/` and the filename starts `MEMORY` | memory-index | 17. The earlier check of 11 was a different cut and is void. Live files: `MEMORY.md`, `MEMORY_B.md`, `MEMORY_SIFT.md`. The other 14 are `.bak` of those three (5, 2, and 7). |
 | 12 | starts `trees/HOME/` and the filename starts `hardware_` | hardware | 3 |
 | 13 | starts `trees/` and was not matched above | registry | the rest of `trees/` (199 total in `trees/`, 196 of them under `trees/HOME/`) |
 | 14 | filename is `THE_SLATE.md`, `PAN_SLATE_B.md`, `THE_SLATE_CHAOS.md`, `SLATE_CLEARED.md`, `SLATE_RETRACTED.md`, or the same name with `.bak` in it | slate | top of the tree |
@@ -119,7 +119,7 @@ Apply in order. First match wins. Check the resulting counts against the folder 
 | 6 | starts `COLD/` | cold | 21 |
 | 7 | starts `inputs/` | inputs | 19 |
 | 8 | starts `IN/` | in-queue | 1 |
-| 9 | no slash, and kind is `md` | doctrine | 6 md at the top, plus 1 bak of `FOREVER_SIFT_v1.md` which is still doctrine and also review `bak` |
+| 9 | no slash, and (kind is `md` or the file is `FOREVER_SIFT_v1.md.bak-pre-s9-20260819`) | doctrine | 7. Six markdown files plus that one bak. The bak also carries review `bak`. |
 | 10 | else | other | |
 
 Ore is the mass. 764 of 832 files are under `results/`. The chart has to show that, or the page hides the system.
@@ -134,8 +134,8 @@ Ore is the mass. 764 of 832 files are under `results/`. The chart has to show th
 | 4 | starts `.pytest_cache/` | cache | 5 |
 | 5 | starts `archive/` | archive | 5 |
 | 6 | starts `config/` or `docs/` | config | 2 |
-| 7 | no slash, kind `md` | plans | the top markdown: blueprint, capabilities, phase plans, roadmap, gate ledger, omnis report, recommended improvements |
-| 8 | else | other | `install.sh`, `requirements.txt`, `session_end_xx`, `session_one`, yaml, gitignore |
+| 7 | no slash, kind `md` | plans | 10: `CURRENT_CAPABILITIES.md`, `GATE_LEDGER.md`, `MIDAS_AGENT_BLUEPRINT.md`, `OMNIS-REPORT.md`, `PHASE2_PLAN.md`, `PHASE3_PLAN.md`, `PHASE3_TRANCHE1_DETAILED_PLAN.md`, `PHASE3_TRANCHE2_DETAILED_PLAN.md`, `RAPHAEL_AGENT_NEXT_LEVEL_ROADMAP.md`, `RECOMMENDED_IMPROVEMENTS.md` |
+| 8 | else | other | 8: `.gitignore`, `.midas-agent-test.txt`, `.midas-agent.yaml`, `MANIFEST.sha256`, `install.sh`, `requirements.txt`, `session_end_xx`, `session_one` |
 
 The plans are June documents sitting next to an August tree. The chart lists them as plans. It does not call them the current code. The package is `midas_agent/`.
 
