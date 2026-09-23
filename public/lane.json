@@ -1,0 +1,174 @@
+{
+  "instrument": "LANE",
+  "kind": "lane-card",
+  "heldBy": "web",
+  "warning": "A seat card is not a map of the disks. These counts are not the whole disk.",
+  "source": "Relayed report only. No assay body, no Grok v0.1 spec, and no other session was read to draw this card.",
+  "provenance": {
+    "seat": "two",
+    "ran": "No new forge read. This is the lane correction Randy asked both seats to lock. Counts below were measured look-only on the prior turn.",
+    "found": "Agreement from the device seat.",
+    "relay": "Randy is the operator and the relay. He pastes. He carries reports. He says go or no-go."
+  },
+  "confirmation": {
+    "by": "web",
+    "text": "Four seats, in the words relayed. Randy is the operator and the relay. He is not the seam chair."
+  },
+  "seats": [
+    {
+      "id": "operator",
+      "name": "Randy",
+      "role": "Operator and relay",
+      "words": "He pastes. He carries reports. He says go or no-go. He is not the seam chair."
+    },
+    {
+      "id": "seam",
+      "name": "Seam chair",
+      "role": "CLI repair on forge",
+      "words": "It repairs, updates, closes gaps, and works the slate. It stays cold until he relays a repair."
+    },
+    {
+      "id": "device",
+      "name": "Device",
+      "role": "Build on two",
+      "words": "Eyes and hands. It looks, measures, and boots work on the box. It acts on a repair only after he relays it."
+    },
+    {
+      "id": "web",
+      "name": "Web",
+      "role": "Intel",
+      "words": "After a body has been read, web says what is vital, what is noise, and what should be improved, updated, or left. Multiples get a paper hybrid, not a silent merge. Web flags a closer look. Device does that look. Visuals are drawn from measured rows. A seat card is not a map of the disks."
+    }
+  ],
+  "systems": {
+    "law": "Three systems, not three brains.",
+    "three": [
+      {
+        "id": "panoptes",
+        "name": "PANOPTES",
+        "words": "The workflow: law, rule, guardrail, structure. It changes when reviewed findings say it changes.",
+        "measuredRoot": "PANOPTES",
+        "bindNote": "The measured root is the name PANOPTES. This card does not add a path that was not in the table."
+      },
+      {
+        "id": "sift",
+        "name": "SIFT",
+        "words": "Excavates saved sessions. It witnesses, records, and preserves. A dug file is often evidence of a path. It does not take over the live file by being found.",
+        "measuredRoot": "~/000-INGATHERING-000/SIFT",
+        "bindNote": "~/SIFT does not exist."
+      },
+      {
+        "id": "raphael",
+        "name": "Raphael",
+        "words": "Local intelligence that uses that workflow. It is not a second copy of the workflow.",
+        "measuredRoot": null,
+        "bindNote": "No file row was given for Raphael. ~/midas-agent is a measured root. This card does not call it Raphael."
+      }
+    ],
+    "outside": {
+      "id": "ingot",
+      "name": "INGOT",
+      "words": "Builder plus capsule is one seal tool. It sits outside the three."
+    }
+  },
+  "measured": {
+    "skipped": [".git", "virtualenvs"],
+    "absent": ["~/SIFT"],
+    "bar": "files",
+    "bytesAre": "labels",
+    "order": "As relayed. Not sorted.",
+    "rows": [
+      {
+        "root": "PANOPTES",
+        "files": 635,
+        "bytes": 36404133,
+        "md": 375,
+        "py": 12,
+        "bak": 64,
+        "other": 184
+      },
+      {
+        "root": "~/000-INGATHERING-000/SIFT",
+        "files": 832,
+        "bytes": 66967579,
+        "md": 551,
+        "py": 1,
+        "bak": 33,
+        "other": 247
+      },
+      {
+        "root": "~/midas-agent",
+        "files": 81,
+        "bytes": 6452827,
+        "md": 16,
+        "py": 27,
+        "bak": 0,
+        "other": 38
+      },
+      {
+        "root": "~/PROTOCOLS",
+        "files": 167,
+        "bytes": 2174250,
+        "md": 96,
+        "py": 10,
+        "bak": 5,
+        "other": 56
+      }
+    ]
+  },
+  "not": [
+    { "id": "assay", "text": "Assay body still unread." },
+    { "id": "grok-v0.1", "text": "Grok v0.1 specs still unread." },
+    { "id": "structure", "text": "No structure written." },
+    { "id": "memory-dir", "text": "No memory directory made." },
+    { "id": "html", "text": "No HTML." },
+    { "id": "winners", "text": "No winners." },
+    { "id": "sda-send", "text": "No sda-send." },
+    { "id": "not-whole-disk", "text": "These counts are not the whole disk." }
+  ],
+  "next": "Web holds this lane card and draws the bars from the table only. The assay stays unread until Randy relays that slice.",
+  "strata": {
+    "tool": "STRATA",
+    "what": "SHA256 of files, so duplicates and larger files can be known from a real run.",
+    "status": "not-run",
+    "rows": []
+  },
+  "append": {
+    "file": "public/lane.json",
+    "rules": [
+      "Add objects to findings. Do not edit measured.rows, seats, or systems.",
+      "A number enters only from a look that was relayed. Do not invent counts.",
+      "STRATA hashes enter only from a STRATA run. status stays not-run until those rows exist.",
+      "Two claims about the same thing are a paper hybrid: keep both, set conflictsWith, do not silent-merge.",
+      "A dug file is evidence of a path. It does not replace the live file.",
+      "Drafts saved in a browser are not measurements and are not on the card until written into findings.",
+      "Do not sum the four roots into a disk total. The report says these counts are not the whole disk."
+    ],
+    "finding": {
+      "id": "string, unique",
+      "addedBy": "operator | cli-seam | device | web",
+      "relayed": "boolean",
+      "at": "ISO-8601 or null",
+      "kind": "look | measure | strata | reading | flag | hybrid | correction",
+      "subject": "string",
+      "body": "string",
+      "measured": "boolean. false unless the numbers came from a relayed look",
+      "numbers": "null, or one measured row only when measured is true",
+      "hashes": "null, or an array of {path, sha256, bytes} only from STRATA",
+      "conflictsWith": "null, or an array of finding ids",
+      "status": "open | held | closed",
+      "draft": "boolean"
+    }
+  },
+  "findings": [],
+  "webReading": [
+    "Doable. This card is the visual. public/lane.json is the file a CLI agent appends and web reads. Same words, same rows.",
+    "Bars are file counts. Bytes are labels under the name. Bar length is not size on disk.",
+    "Do not bind ~/midas-agent to Raphael. No row was given for Raphael.",
+    "Do not open the assay or the Grok v0.1 specs from this card. They stay unread until relayed.",
+    "STRATA is the right next tool for duplicates and which files are larger. It has not been run for this card. The slot stays empty.",
+    "Multiples get a paper hybrid in findings. There are no winners, and this card does not pick one.",
+    "Depth is the next relayed slice, appended here. It is not a redraw of these four rows.",
+    "This preview does not close the open list. No HTML on the forge lane is still what was relayed. A web visual is not that HTML."
+  ]
+}
