@@ -1,5 +1,13 @@
 {
   "owner": "web",
   "rule": "Web appends notes here. Do not edit public/cli.json. Do not edit systems, files, counts, instruction, recommendations, or device messages.",
-  "notes": []
+  "notes": [
+    {
+      "id": "web-1",
+      "at": "2026-09-23T20:15:00Z",
+      "mark": "flag",
+      "subject": "memory-index check does not match the rule",
+      "body": "Rule 11 says the filename starts MEMORY. On this map that is 17 files, all direct children of trees/HOME/: MEMORY.md, MEMORY_B.md, MEMORY_SIFT.md, and their .bak twins. The check says 11. The bar shows 17. It is not relabeled. The other PANOPTES checks matched, including trees/ 199 and trees/HOME/ 196."
+    }
+  ]
 }
