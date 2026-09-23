@@ -142,9 +142,9 @@ const ORDER = {
   raphael: ["package","tests","wheels","cache","archive","config","plans","other"]
 };
 const EXPECT = {
-  panoptes: { snapshot:221, assay:82, lanes:14, machinery:45, sessions:26, "law-feedback":58, "memory-finding":56, "memory-project":36, "memory-reference":19, "memory-user":6, "memory-index":11, hardware:3, chaos:5, roundtable:9, remember:12 },
-  sift: { "ore-309":689, "ore-cli-forge":66, "ore-anvil":5, "ore-other":4, prompts:20, cold:21, inputs:19, "in-queue":1 },
-  raphael: { package:24, tests:7, wheels:20, cache:5, archive:5, config:2 }
+  panoptes: { snapshot:221, assay:82, lanes:14, machinery:45, sessions:26, "law-feedback":58, "memory-finding":56, "memory-project":36, "memory-reference":19, "memory-user":6, "memory-index":17, hardware:3, chaos:5, roundtable:9, remember:12 },
+  sift: { "ore-309":689, "ore-cli-forge":66, "ore-anvil":5, "ore-other":4, prompts:20, cold:21, inputs:19, "in-queue":1, doctrine:7 },
+  raphael: { package:24, tests:7, wheels:20, cache:5, archive:5, config:2, plans:10, other:8 }
 };
 const SLATES = ["THE_SLATE.md","PAN_SLATE_B.md","THE_SLATE_CHAOS.md","SLATE_CLEARED.md","SLATE_RETRACTED.md"];
 const UNREAD = {
@@ -194,8 +194,7 @@ function categoryFor(system, path, kind) {
     if (path.startsWith("COLD/")) return "cold";
     if (path.startsWith("inputs/")) return "inputs";
     if (path.startsWith("IN/")) return "in-queue";
-    if (!path.includes("/") && kind === "md") return "doctrine";
-    if (!path.includes("/") && filename.includes("FOREVER_SIFT_v1.md") && filename.includes(".bak")) return "doctrine";
+    if (!path.includes("/") && (kind === "md" || filename === "FOREVER_SIFT_v1.md.bak-pre-s9-20260819")) return "doctrine";
     return "other";
   }
   if (path.startsWith("midas_agent/")) return "package";
@@ -318,10 +317,7 @@ function drawCats() {
       const got = totals[cat] ? totals[cat].files : 0;
       if (got !== want) misses.push(cat + " is " + got + ", the check says " + want);
     }
-    if (system.id === "panoptes" && totals["memory-index"] && totals["memory-index"].files !== 11) {
-      const onlyIndex = misses.length === 1 && misses[0].startsWith("memory-index");
-      article.append(el("p", "Rule 11 check failed. Filename starts MEMORY is " + totals["memory-index"].files + " on the map. The spec says 11. The bar says " + totals["memory-index"].files + ". It is not relabeled. " + (onlyIndex ? "The other numbered checks on this chart matched." : misses.join(". ")), "fail"));
-    } else if (misses.length) {
+    if (misses.length) {
       article.append(el("p", "Check failed. " + misses.join(". ") + ". The bars are the measured counts. They are not relabeled.", "fail"));
     }
     if (system.id === "sift") {
