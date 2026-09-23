@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LANE — file map</title>
+<style>
+  :root { --bg:#141311; --fg:#ebe4d6; --muted:#a39b8f; --line:#3a342c; --brass:#d4b36a; --surface:#1e1c18; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.45 Georgia, serif; }
+  header, main { max-width:960px; margin:0 auto; padding:24px 16px; }
+  h1 { font-size:2.4rem; margin:0 0 8px; }
+  h2 { font-size:1.4rem; margin:28px 0 8px; }
+  p, li { color:var(--fg); }
+  .muted { color:var(--muted); }
+  .rule { border-left:3px solid var(--brass); padding:8px 12px; color:var(--muted); }
+  pre { white-space:pre-wrap; background:var(--surface); border:1px solid var(--line); padding:12px; font:13px/1.4 ui-monospace, monospace; }
+  table { width:100%; border-collapse:collapse; font:13px/1.35 ui-monospace, monospace; }
+  th, td { text-align:left; padding:4px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  td.n, th.n { text-align:right; }
+  input { width:100%; background:var(--surface); color:var(--fg); border:1px solid var(--line); padding:8px; font:14px ui-monospace, monospace; }
+  details { border:1px solid var(--line); margin:6px 0; background:var(--surface); }
+  summary { cursor:pointer; padding:8px 10px; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:800px) { .cols { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--line); padding:10px 12px; margin:8px 0; }
+  .bar { height:10px; background:var(--brass); margin-top:4px; }
+  nav a { color:var(--brass); margin-right:12px; }
+</style>
+</head>
+<body>
+<header>
+  <p class="muted">LANE · file map of the three · device writes the map · web writes notes</p>
+  <h1>LANE</h1>
+  <p class="rule" id="rule">Loading.</p>
+  <nav>
+    <a href="#instruction">Instruction</a>
+    <a href="#map">Map</a>
+    <a href="#more">More</a>
+    <a href="#board">Board</a>
+  </nav>
+</header>
+<main>
+  <section id="instruction">
+    <h2>Instruction</h2>
+    <p class="muted">Device updates this. Web reads it. Web does not edit it.</p>
+    <pre id="prompt"></pre>
+  </section>
+  <section id="map">
+    <h2>Map</h2>
+    <p class="muted" id="look"></p>
+    <div id="bars"></div>
+    <p><input id="q" type="search" placeholder="Filter paths" aria-label="Filter paths"></p>
+    <div id="trees"></div>
+  </section>
+  <section id="more">
+    <h2>Recommendations</h2>
+    <p class="muted">Not added to the map. Randy relays one before it becomes a root.</p>
+    <div id="recs"></div>
+  </section>
+  <section id="board">
+    <h2>Board</h2>
+    <p class="muted">Left is device. Right is web. Neither side edits the other file.</p>
+    <div class="cols">
+      <div>
+        <h3>Device · public/cli.json</h3>
+        <div id="cli-notes"></div>
+      </div>
+      <div>
+        <h3>Web · public/web.json</h3>
+        <div id="web-notes"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const q = document.getElementById("q");
+let systems = [];
+
+function n(x) { return new Intl.NumberFormat("en-US").format(x); }
+
+function folders(files) {
+  const g = new Map();
+  for (const f of files) {
+    const i = f.path.indexOf("/");
+    const key = i === -1 ? "(top)" : f.path.slice(0, i);
+    if (!g.has(key)) g.set(key, []);
+    g.get(key).push(f);
+  }
+  return [...g.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+
+function draw() {
+  const needle = q.value.trim().toLowerCase();
+  const root = document.getElementById("trees");
+  root.replaceChildren();
+  for (const s of systems) {
+    const sec = document.createElement("section");
+    const h = document.createElement("h3");
+    const c = s.counts;
+    h.textContent = s.name + " · " + s.root + " · " + n(c.files) + " files · " + n(c.bytes) + " bytes";
+    sec.appendChild(h);
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = s.words + " md " + c.md + " · py " + c.py + " · bak " + c.bak + " · other " + c.other;
+    sec.appendChild(p);
+    const shown = needle ? s.files.filter(f => f.path.toLowerCase().includes(needle)) : s.files;
+    for (const [name, rows] of folders(shown)) {
+      const d = document.createElement("details");
+      if (needle) d.open = true;
+      const sum = document.createElement("summary");
+      sum.textContent = name + " · " + rows.length;
+      d.appendChild(sum);
+      const table = document.createElement("table");
+      const body = document.createElement("tbody");
+      for (const f of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + f.path.replaceAll("<", "&lt;") + "</td><td>" + f.kind + "</td><td class='n'>" + n(f.bytes) + "</td>";
+        body.appendChild(tr);
+      }
+      table.appendChild(body);
+      d.appendChild(table);
+      sec.appendChild(d);
+    }
+    root.appendChild(sec);
+  }
+}
+
+function notes(el, rows, empty) {
+  el.replaceChildren();
+  if (!rows || rows.length === 0) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = empty;
+    el.appendChild(p);
+    return;
+  }
+  for (const row of rows) {
+    const card = document.createElement("article");
+    card.className = "card";
+    const t = document.createElement("p");
+    t.className = "muted";
+    t.textContent = (row.from || row.mark || "note") + " · " + (row.at || "");
+    const b = document.createElement("p");
+    b.textContent = row.body || row.subject || "";
+    card.append(t, b);
+    el.appendChild(card);
+  }
+}
+
+fetch("public/cli.json").then(r => r.json()).then(cli => {
+  document.getElementById("rule").textContent = cli.rule;
+  document.getElementById("prompt").textContent = cli.instruction.body;
+  document.getElementById("look").textContent = cli.look;
+  systems = cli.systems;
+  const max = Math.max(...systems.map(s => s.counts.files));
+  const bars = document.getElementById("bars");
+  for (const s of systems) {
+    const row = document.createElement("div");
+    row.style.margin = "8px 0";
+    const label = document.createElement("div");
+    label.textContent = s.name + "  " + n(s.counts.files) + " files  ·  " + n(s.counts.bytes) + " bytes";
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.width = Math.max(2, Math.round(100 * s.counts.files / max)) + "%";
+    row.append(label, bar);
+    bars.appendChild(row);
+  }
+  const recs = document.getElementById("recs");
+  for (const rec of cli.recommendations) {
+    const card = document.createElement("article");
+    card.className = "card";
+    const t = document.createElement("p");
+    t.textContent = rec.path + " · " + rec.status;
+    const b = document.createElement("p");
+    b.className = "muted";
+    b.textContent = rec.why;
+    card.append(t, b);
+    recs.appendChild(card);
+  }
+  notes(document.getElementById("cli-notes"), cli.messages, "No device messages.");
+  draw();
+}).catch(() => {
+  document.getElementById("rule").textContent = "public/cli.json did not load.";
+});
+
+fetch("public/web.json").then(r => r.json()).then(web => {
+  notes(document.getElementById("web-notes"), web.notes, "No web notes yet. Web appends them in public/web.json and does not edit the map.");
+}).catch(() => {
+  notes(document.getElementById("web-notes"), [], "public/web.json did not load.");
+});
+
+q.addEventListener("input", draw);
+</script>
+</body>
+</html>
