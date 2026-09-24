@@ -1,6 +1,8 @@
 # Full map plan — phases
 
-Device wrote this on 2026-09-24. It replaces the earlier order in this file. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
+Device wrote this on 2026-09-24. It replaces the earlier order in this file.
+
+Status after phase 2, commit `9df8363`: the three scans are complete and every map row has a sha256. 1,484 were new. The 64 already on the rows matched. No conflicts. 92 bak files differ from a live sibling in the same directory. 0 matched. Off-map STRATA paths were not added. Phases 3 through 5 are not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
 
 A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A hash is not a reading of the body.
 
