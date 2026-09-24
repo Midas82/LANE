@@ -1,44 +1,51 @@
-# Full map plan
+# Full map plan — phases
 
-Device wrote this on 2026-09-24. Web reads it. Web does not fill in the hashes, the counts, or the file rows. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
+Device wrote this on 2026-09-24. It replaces the earlier order in this file. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
 
-A finished map row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A row is not a reading of the body. Unread stays unread until that file is opened and the note says how far the read went.
+A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A hash is not a reading of the body.
 
-1,548 files are on the map. 64 of them have a sha256. The other 1,484 do not.
+## Where it stands
 
-## Done
+1,548 files are on the map. 64 have a sha256. Those 64 are the identical pairs, the 20 SIFT prompt files, and the 36 doctrine and plan files. No backup in that set matches its live file.
 
-- The three roots are listed. `~/SIFT` is not a directory. SIFT is `~/000-INGATHERING-000/SIFT`. Raphael’s tree is `~/midas-agent`.
-- Categories and the review rules are in `DESIGN.md`. The memory-index check is 17, not 11.
-- Eight cross-system filenames were compared by size. Different sizes are not the same file.
-- Four same-size pairs and the two 37-byte pytest `.gitignore` files were hashed. Each pair is the same bytes. Nothing was deleted.
-- `SIFT/prompts/` is 20 files. The 13 that are not bak each have a different hash. Live `SONNET_SIFT_PROMPT_v2.8.md` is `96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc`. None of its 6 bak files match it. That hash matches the sidecar on two. The body was not copied.
-- 36 top files now have hashes: the PANOPTES slate and law files, the 7 SIFT doctrine files, the 10 Raphael plan files. No bak matches its live file.
+STRATA at `~/STRATA` on forge is the hasher. Phase 1 streams each file through sha256 and writes only under `runs/<id>/`. Eighteen older runs were read. None target `~/PANOPTES`, `~/000-INGATHERING-000/SIFT`, or `~/midas-agent`. Their hashes are not copied onto these rows.
 
-## What full means
+`scan` has no inventory-only switch. One scan runs inventory, structure, extract, graph, and export. Output stays under `~/STRATA/runs/`. The scanned tree is not modified.
 
-Every file already on the map gets a sha256 on its row. That is the identity layer. It can be done without opening the body.
+## Phases
 
-Reading is a second layer, and only for rows already marked `unread`, or for a file Randy names. The ore under `results/` is 764 files. Those get hashes so copies inside the ore can be seen. They do not get summarized into law.
+### Phase 0 — Plan on the repo
 
-`~/PROTOCOLS` stays off the charts until Randy relays it. `.git` and virtualenvs stay skipped. No winners. No merge by date. No new memory directory. No `sda` send.
+Write this file and a device message in `public/cli.json`. Do not edit `public/web.json`.
 
-## STRATA
+### Phase 1 — Scan the three roots
 
-Read 2026-09-24 on forge `~/STRATA` and on two at `~/000-MIDAS-000/STRATA`. It is the old fsck-ai-context-engine, renamed 2026-06-11. Phase 1 inventories every file and writes sha256 via `sha256_of_file` in `src/util.py` (hashlib, streamed, full bytes). It does not write inside the scanned target. A run lands in `runs/<id>/` as `inventory.jsonl`, `manifest.sqlite`, and `context_bundle/files_manifest.tsv` (relpath, type, size, sha256, mtime). Duplicate edges are a later phase.
+On forge, from `~/STRATA`:
 
-18 run indexes were read. Their targets are Anvil mounts, `/mnt/bridge`, `/mnt/library` (inventory hashed, later phases not finished), `/mnt/usb/home/midas`, `/home/midas/CORPUS`, and one found-not-grok folder. None is `~/PANOPTES`, `~/000-INGATHERING-000/SIFT`, or `~/midas-agent`. The live v2.8 hash `96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc` is not in those manifests. Those runs are not a source for the current rows.
+```
+./scripts/run.sh scan ~/PANOPTES --out ~/STRATA/runs --run-id lane-panoptes-20260924
+./scripts/run.sh scan ~/000-INGATHERING-000/SIFT --out ~/STRATA/runs --run-id lane-sift-20260924
+./scripts/run.sh scan ~/midas-agent --out ~/STRATA/runs --run-id lane-raphael-20260924
+```
 
-The next hash pass can be one STRATA scan of the three roots, output only under `~/STRATA/runs/`. Device then stamps sha256 from that manifest onto `public/cli.json`. The scan was not started in this pass.
+Read each `context_bundle/INDEX.md` before stamping. If a run is not `complete`, do not stamp it.
 
-## Order
+### Phase 2 — Stamp
 
-1. STRATA-scan the rest of PANOPTES outside `offsite/` and outside `trees/HOME/`, or scan the three roots in one run and stamp only this slice first. Say how many bak files match a live hash. Do not delete a match. Do not import hashes from the June runs.
-2. Hash `trees/HOME/`. Stamp the rows. The prefix counts stay the category rules. Do not invent a new memory type from a filename.
-3. Hash `midas_agent/` and `tests/`. Stamp the rows. The June plan files are already hashed. They are not the package.
-4. Hash `SIFT` outside `prompts/` and outside `results/`. `prompts/` is done. Stamp `COLD/`, `inputs/`, and `IN/`.
-5. Hash `results/`. Record unique hashes against file count. Do not open the transcripts in that pass.
-6. Open only the unread marks: `assay/INGOT_ASSAY_v1.md`, and `PAN_SLATE_B.md` from line 161. Write how far the read went. Do not turn that read into a new design.
-7. Stop. The map is full at the identity layer. A body that was not opened is still unread.
+Join `files_manifest.tsv` onto `public/cli.json` by relative path. Write `sha256` only when the path matches a row. Count stamped, unmatched manifest lines, and rows still without a hash. A manifest line that is not on the map stays off the map. Do not import the June runs.
 
-Web can propose a change under **Web additions**. Device does the next numbered step. Randy says if the order changes.
+### Phase 3 — Duplicates from the scan
+
+From the graph phase, record duplicate groups whose sha256 matches. Say which are bak-versus-live. Do not delete a match.
+
+### Phase 4 — The two unread files
+
+Open `assay/INGOT_ASSAY_v1.md` and `PAN_SLATE_B.md` from line 161. Write how far the read went. Do not turn that read into a new design.
+
+### Phase 5 — Stop
+
+The identity layer is full when every row on the map has a sha256 from its own scan. `results/` is hashed, not summarized into law. `~/PROTOCOLS` stays off the charts until Randy relays it. `.git` and virtualenvs were skipped in the map walk. STRATA skips nothing inside the target it is given, so its file count may be higher. The extra paths are reported. They are not added as rows unless Randy relays that.
+
+## Not in these phases
+
+No winners. No merge by date. No new memory directory. No `sda` send. No HTML on forge. The seam chair stays cold.
