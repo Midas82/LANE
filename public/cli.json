@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T05:40:00Z",
+  "updated": "2026-09-24T06:05:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -38,6 +38,12 @@
       "at": "2026-09-24T05:40:00Z",
       "from": "device",
       "body": "SIFT prompts/ hashed, 20 files, sha256 now on those rows. The 13 files that are not bak each have a different hash. Live SONNET_SIFT_PROMPT_v2.8.md is 96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc. None of its 6 bak files match that hash. The same hash is the sidecar on two at ~/000-MIDAS-000/000-INGATHERING-000/SIFT/prompts/SONNET_SIFT_PROMPT_v2.8.sha256. The v2.8 body was not copied onto two. Opus v1.0 and Sonnet v2.3 rows now carry the hashes already shown to match the 2026-08-13 offsite copies."
+    },
+    {
+      "id": "cli-2026-09-24-spine-hashes",
+      "at": "2026-09-24T06:05:00Z",
+      "from": "device",
+      "body": "36 top files hashed on forge and stamped. 19 PANOPTES slate and law files, 7 SIFT doctrine files, 10 Raphael plan files. No backup hash matches its live file. Live marks: CLAUDE.md 509bb0321ac40c1b8543a6b71810e7b0c427f0a5d346b1fd76e43fcd0dc14948, THE_MAP.md 33c01d581c85c11975ba96f63d113b66c9b4208ec7d3067e7ce20297ddb69d2c, THE_SLATE.md 1e8738465de0127e0a9b2adb0fb94f92dbed6e7e6f73f812c60c3be4c58cd6c9, FOREVER_SIFT_v1.md 57a3981dd186939be88020c2c585119712f889e36ed54298e87cbc6ed40c433b, MIDAS_AGENT_BLUEPRINT.md 66ca6f088da3e250cb69244198bbe96c654156fdb8a1c94f988735d306be709c, CURRENT_CAPABILITIES.md d8f1eb0b2e06b37f6877112e409ce304af910207834da7d51d1c2836e29639f8. Bodies not copied. web.json not edited."
     }
   ],
   "recommendations": [
@@ -83,97 +89,116 @@
         {
           "path": "CLAUDE.md",
           "bytes": 32308,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "509bb0321ac40c1b8543a6b71810e7b0c427f0a5d346b1fd76e43fcd0dc14948"
         },
         {
           "path": "CLAUDE.md.bak-lanes-20260823-0102",
           "bytes": 26941,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "4647ab68342044b36e061c376056d02a71da048bca4cf24482d3b5863d4b8e2c"
         },
         {
           "path": "CLAUDE.md.bak-prehands-20260829",
           "bytes": 27501,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "9cf35e32f1de4392eb2ab6058cf5b2598d00f54296bf8137edb3cc59fdfc8743"
         },
         {
           "path": "HOME.md",
           "bytes": 2182,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "2fbd623faaeaa0212f276f87837ad31a89011f4e5eeb73ef4788462fac3d9c93"
         },
         {
           "path": "PAN_SLATE_B.md",
           "bytes": 93708,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "15006589ae51408a6172869a17ac3e3e8f481b8da5c02b5844d089eb429ad439"
         },
         {
           "path": "PAN_SLATE_B.md.bak-preseam-20260824-2152",
           "bytes": 94199,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "9d1a3268a696235257d9a0b717c368fd33b714246e678b17d1d1a5149bb127ed"
         },
         {
           "path": "README.md",
           "bytes": 1502,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "f6a2885379a1c0359c0488d97c958d9c30f33ac3770b60fc4ff5a465661d8d95"
         },
         {
           "path": "REBOOT_FORGE_2026-08-17.md",
           "bytes": 8593,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "68af698d2c411b66d296724edf712c24d5e199136d0da9ecb1b0d16a53a6e2a5"
         },
         {
           "path": "REBUILD_PLAN_2026-08-17.md",
           "bytes": 7987,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "c031faf9275611f36ea1f0be8d26c206995b2abaec415cef2805fe009475a889"
         },
         {
           "path": "REPAIR_QUEUE.md",
           "bytes": 24788,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "10538462a05fa695c827395e8fcdd29f18361ef83f24d355fc648e793b120f69"
         },
         {
           "path": "REPAIR_QUEUE.md.bak-preseam-20260824-2158",
           "bytes": 17894,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "298e66868c8142d63ea8c968a91fe05275e1852ade34a388f6ab270433788f9d"
         },
         {
           "path": "SLATE_CLEARED.md",
           "bytes": 36783,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "94669f487b6802fbae8a000a868d8af51d6d54f3514ecd102bdcc3af9fef057c"
         },
         {
           "path": "SLATE_CLEARED.md.bak-preseam-20260824-2152",
           "bytes": 31131,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "15b64e5637b2ec9e7444abd596171c9090914bae47e3427e1b7d3ae10f9f5d68"
         },
         {
           "path": "SLATE_RETRACTED.md",
           "bytes": 9233,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "c2b60cbc3b504160c9acde655c43f2ce3a92f050919d9f73f7058eb07ca8a97a"
         },
         {
           "path": "THE_MAP.md",
           "bytes": 6173,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "33c01d581c85c11975ba96f63d113b66c9b4208ec7d3067e7ce20297ddb69d2c"
         },
         {
           "path": "THE_SLATE.md",
           "bytes": 22326,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "1e8738465de0127e0a9b2adb0fb94f92dbed6e7e6f73f812c60c3be4c58cd6c9"
         },
         {
           "path": "THE_SLATE.md.bak-disk-20260829",
           "bytes": 20124,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "9748098ded7738b1a0a3a8024d594745b6888ef1f5caccd6991c580e7125f56c"
         },
         {
           "path": "THE_SLATE_CHAOS.md",
           "bytes": 23500,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "2623fef4753986b58836e47d27097a59271dced098e61de07ec3644398501433"
         },
         {
           "path": "THE_SLATE_CHAOS.md.bak-20260829",
           "bytes": 11282,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "0f55b48d2c9017d64d2aed5d578a7abdb034fe1a829a7769af3cb336387413d7"
         },
         {
           "path": ".panoptes/DISABLED_HOOK_panoptes_recall.json",
@@ -3277,37 +3302,44 @@
         {
           "path": "FOREVER_SIFT_v1.md",
           "bytes": 26200,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "57a3981dd186939be88020c2c585119712f889e36ed54298e87cbc6ed40c433b"
         },
         {
           "path": "FOREVER_SIFT_v1.md.bak-pre-s9-20260819",
           "bytes": 13695,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "d86469a59b69e4c9cac1fd418653f11ea1ca057804311d553109872ef3eb773a"
         },
         {
           "path": "README.md",
           "bytes": 2427,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "b010c3ecebf07a97b9693297573762a9e767e9c18f041738a8dd5f38c39b4d28"
         },
         {
           "path": "SIFT_REMODEL_ANALYSIS_2026-08-16.md",
           "bytes": 17735,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "6fa2b178b98021ccc2499de0694962a752463756d384d4d8c09511f238c1e32a"
         },
         {
           "path": "SIFT_RESUME_2026-08-16.md",
           "bytes": 3175,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "cbd2c0459fd0db4e2cac7e93beec19064418ee8a0b9c4501080ca8245f7e9c63"
         },
         {
           "path": "WAVE3_RESUME_2026-07-20.md",
           "bytes": 1770,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "7e32822934abcee070a942bb96f199b9186dba3375cb1e52d8af5fa28272d1e5"
         },
         {
           "path": "WITNESSED_THUS_FAR_2026-07-20.md",
           "bytes": 6925,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "0f414197324ed65e17a8fd993b33ef51800116eb86ff18029cc56b8e682fcf23"
         },
         {
           "path": "COLD/LEDGER.jsonl",
@@ -7502,12 +7534,14 @@
         {
           "path": "CURRENT_CAPABILITIES.md",
           "bytes": 8751,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "d8f1eb0b2e06b37f6877112e409ce304af910207834da7d51d1c2836e29639f8"
         },
         {
           "path": "GATE_LEDGER.md",
           "bytes": 4152,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "ab1c12d26fe2671a2d407c78c50d22d40aca6c2f38640ef846020f057c64fde5"
         },
         {
           "path": "MANIFEST.sha256",
@@ -7517,42 +7551,50 @@
         {
           "path": "MIDAS_AGENT_BLUEPRINT.md",
           "bytes": 21081,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "66ca6f088da3e250cb69244198bbe96c654156fdb8a1c94f988735d306be709c"
         },
         {
           "path": "OMNIS-REPORT.md",
           "bytes": 2770,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "898e805ecccac4700d8c3b7d0e02b7667c3509c04299596abc78d91ef5380106"
         },
         {
           "path": "PHASE2_PLAN.md",
           "bytes": 9117,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "910b2855c13ea29a79767284699aec34523cbe570c5e0b3ee7f2d327508e4355"
         },
         {
           "path": "PHASE3_PLAN.md",
           "bytes": 7583,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "b0e4a706af882960af1e1125bd08ff98e322cc71ea3e71f3664193c7fda9c30e"
         },
         {
           "path": "PHASE3_TRANCHE1_DETAILED_PLAN.md",
           "bytes": 7514,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "8cf9888d254c91e897f419badba65133573500209e20373795868b9eb72fd57a"
         },
         {
           "path": "PHASE3_TRANCHE2_DETAILED_PLAN.md",
           "bytes": 9804,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "738733f2692f87c5ec9dcf22207eb7629f5a46a6eaad2d1bd35e4dee06e69479"
         },
         {
           "path": "RAPHAEL_AGENT_NEXT_LEVEL_ROADMAP.md",
           "bytes": 20358,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "d6d024fa10f74f7f6826484ab5980e2b4e01e4be7dd255454f35c9d5d8ef73e0"
         },
         {
           "path": "RECOMMENDED_IMPROVEMENTS.md",
           "bytes": 9590,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "17b37dca541e86aa5dd475e1e19528107fc0d38beb2dd78d020c560d9097de67"
         },
         {
           "path": "install.sh",
