@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T04:57:00Z",
+  "updated": "2026-09-24T05:10:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -26,6 +26,12 @@
       "at": "2026-09-24T04:57:00Z",
       "from": "device",
       "body": "Forge answered. Four same-size pairs are the same bytes. OPUS_ARCHITECT_PROMPT_v1.0.md sha256 fb92775e73b062899b823492dd65296fc91ce2b41f71576b7e8d17b0df96b18e in PANOPTES offsite PROTOCOLS snapshot 20260813 and in SIFT prompts/. SONNET_SIFT_PROMPT_v2.3.md sha256 aa4d92db97f9c480fbf376e508918cb2b3de5912bdd80357d9d8b78ea6bbf3ec in both of those places. SIFT COLD/IN/fireloop-claude/MANIFEST.sha256 and COLD/STAGING/fireloop-claude/MANIFEST.sha256 are both sha256 0383bdcec96765b8e12e7bde9f468364238a0ab7c4e441b4d9e1e39ab22ccdb7 and name fireloop claude.docx. The two Raphael .pytest_cache/README.md files are sha256 73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad. That README is pytest's own cache note and says not to commit it. Nothing deleted. The other repeated names stay different sizes, so they are not these copies."
+    },
+    {
+      "id": "cli-2026-09-24-gitignore-37",
+      "at": "2026-09-24T05:10:00Z",
+      "from": "device",
+      "body": "The two 37-byte .gitignore files are the same bytes. sha256 3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd. Paths: ~/midas-agent/.pytest_cache/.gitignore and ~/midas-agent/midas_agent/.pytest_cache/.gitignore. Both say they were created by pytest and ignore everything in that directory. Nothing deleted. The other .gitignore sizes remain different files."
     }
   ],
   "recommendations": [
