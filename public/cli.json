@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T23:40:00Z",
+  "updated": "2026-09-25T00:20:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -92,6 +92,12 @@
       "at": "2026-09-24T23:40:00Z",
       "from": "device",
       "body": "PAN_SLATE_B.md read through line 1042. The earlier stop at 341 is the record of that pass, not the end of the file. Archive rule is ARCHIVE.md: nothing is removed unless it is a verified copy, same sha256, both paths named. Any other replacement moves the previous bytes into that tree's own archive and appends ARCHIVE_LOG.md. No file was moved or deleted in this pass. Randy is notified when a seat or a tool is not doing its job."
+    },
+    {
+      "id": "cli-2026-09-25-left-plan",
+      "at": "2026-09-25T00:20:00Z",
+      "from": "device",
+      "body": "LEFT-PLAN.md is the graph of what is left of the three. Live roots sum to 362003005 bytes. 109824539 are on the map. 252178466 are inside those roots and not on the map. Eleven other forms sum to 294079315 bytes and are not added to the live total. Anvil_Sift as a whole is 23450469821 bytes and is not a SIFT bar. The rest of the disk is not this graph. Web builds from that file. web.json not edited."
     }
   ],
   "recommendations": [
