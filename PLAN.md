@@ -23,9 +23,17 @@ Reading is a second layer, and only for rows already marked `unread`, or for a f
 
 `~/PROTOCOLS` stays off the charts until Randy relays it. `.git` and virtualenvs stay skipped. No winners. No merge by date. No new memory directory. No `sda` send.
 
+## STRATA
+
+Read 2026-09-24 on forge `~/STRATA` and on two at `~/000-MIDAS-000/STRATA`. It is the old fsck-ai-context-engine, renamed 2026-06-11. Phase 1 inventories every file and writes sha256 via `sha256_of_file` in `src/util.py` (hashlib, streamed, full bytes). It does not write inside the scanned target. A run lands in `runs/<id>/` as `inventory.jsonl`, `manifest.sqlite`, and `context_bundle/files_manifest.tsv` (relpath, type, size, sha256, mtime). Duplicate edges are a later phase.
+
+18 run indexes were read. Their targets are Anvil mounts, `/mnt/bridge`, `/mnt/library` (inventory hashed, later phases not finished), `/mnt/usb/home/midas`, `/home/midas/CORPUS`, and one found-not-grok folder. None is `~/PANOPTES`, `~/000-INGATHERING-000/SIFT`, or `~/midas-agent`. The live v2.8 hash `96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc` is not in those manifests. Those runs are not a source for the current rows.
+
+The next hash pass can be one STRATA scan of the three roots, output only under `~/STRATA/runs/`. Device then stamps sha256 from that manifest onto `public/cli.json`. The scan was not started in this pass.
+
 ## Order
 
-1. Hash the rest of PANOPTES outside `offsite/` and outside `trees/HOME/`. Stamp the rows. Say how many bak files match a live hash. Do not delete a match.
+1. STRATA-scan the rest of PANOPTES outside `offsite/` and outside `trees/HOME/`, or scan the three roots in one run and stamp only this slice first. Say how many bak files match a live hash. Do not delete a match. Do not import hashes from the June runs.
 2. Hash `trees/HOME/`. Stamp the rows. The prefix counts stay the category rules. Do not invent a new memory type from a filename.
 3. Hash `midas_agent/` and `tests/`. Stamp the rows. The June plan files are already hashed. They are not the package.
 4. Hash `SIFT` outside `prompts/` and outside `results/`. `prompts/` is done. Stamp `COLD/`, `inputs/`, and `IN/`.

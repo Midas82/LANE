@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T18:10:00Z",
+  "updated": "2026-09-24T18:40:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -50,6 +50,12 @@
       "at": "2026-09-24T18:10:00Z",
       "from": "device",
       "body": "Full map plan is PLAN.md. 1548 files on the map. 64 have a sha256. The rest get a hash in the order in that file. A hash is not a reading. results/ gets hashes and does not get turned into law. PROTOCOLS stays off the charts until Randy relays it. Web notes stay in web.json."
+    },
+    {
+      "id": "cli-2026-09-24-strata",
+      "at": "2026-09-24T18:40:00Z",
+      "from": "device",
+      "body": "STRATA is the hasher. Forge ~/STRATA, also on two at ~/000-MIDAS-000/STRATA. Phase 1 writes sha256 and does not write inside the target. 18 runs were read. None target ~/PANOPTES, ~/000-INGATHERING-000/SIFT, or ~/midas-agent. The live v2.8 hash is not in those manifests. June runs are not stamped onto these rows. Next hash pass can be a new STRATA scan into ~/STRATA/runs/. Not started."
     }
   ],
   "recommendations": [
