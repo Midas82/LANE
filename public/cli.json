@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T19:40:00Z",
+  "updated": "2026-09-24T20:10:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -74,6 +74,12 @@
       "at": "2026-09-24T19:40:00Z",
       "from": "device",
       "body": "Phase 3 is on the rows' sibling lists, not a relay. 34 sha256 groups on the map (58 extra paths). One group is 26 empty files, hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Two groups are the Opus v1.0 and Sonnet v2.3 copies already named. 92 bak siblings next to a live file in the same directory. 0 same bytes, 92 different. Nothing deleted. web.json not edited."
+    },
+    {
+      "id": "cli-2026-09-24-phase4-read",
+      "at": "2026-09-24T20:10:00Z",
+      "from": "device",
+      "body": "Phase 4, partial. assay/INGOT_ASSAY_v1.md read lines 1-766. It is doctrine, document_version 1.2, dated 2026-08-07. It is not a measurement run of the three trees and it has no pass/defer table for them. PAN_SLATE_B.md read through line 341. Lines 342-1042 not read line by line. A8 is a retired alarm and its old directives are not to be acted on. No secret values were copied here. web.json not edited."
     }
   ],
   "recommendations": [
@@ -145,7 +151,8 @@
           "path": "PAN_SLATE_B.md",
           "bytes": 93708,
           "kind": "md",
-          "sha256": "15006589ae51408a6172869a17ac3e3e8f481b8da5c02b5844d089eb429ad439"
+          "sha256": "15006589ae51408a6172869a17ac3e3e8f481b8da5c02b5844d089eb429ad439",
+          "readNote": "Read through line 341 on 2026-09-24, including the rest of section A5, A6, A7, and A8. Lines 342-1042 were not read line by line. Section headings from A9 through A17 were listed. A8 is a retired alarm. Its old directives are marked not to be acted on. No secret values were copied onto this map."
         },
         {
           "path": "PAN_SLATE_B.md.bak-preseam-20260824-2152",
@@ -811,7 +818,8 @@
           "path": "assay/INGOT_ASSAY_v1.md",
           "bytes": 49179,
           "kind": "md",
-          "sha256": "3fc3ee41a9b0f68d018a3c91d5da01426cd09f62739fdf7d95c2990174de48e4"
+          "sha256": "3fc3ee41a9b0f68d018a3c91d5da01426cd09f62739fdf7d95c2990174de48e4",
+          "readNote": "Read 2026-09-24, lines 1-766. document_version 1.2, versioned 2026-08-07. Doctrine for how a finding is recorded. Not a gate run. No pass/defer table for PANOPTES, SIFT, or Raphael. It says a read-only check is a before/after list of path plus sha256, not a name listing. It says v1.1 shipped a false provenance line and a broken probe table, found by reading, and the corrections are quoted in place. Probe ids P01-P19 are listed. P20-P26 are reserved and unassigned."
         },
         {
           "path": "assay/INJECTION_25_PAGES.html",

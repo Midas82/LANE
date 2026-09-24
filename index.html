@@ -156,8 +156,7 @@ const EXPECT = {
 };
 const SLATES = ["THE_SLATE.md","PAN_SLATE_B.md","THE_SLATE_CHAOS.md","SLATE_CLEARED.md","SLATE_RETRACTED.md"];
 const UNREAD = {
-  "panoptes\0assay/INGOT_ASSAY_v1.md": "Body not read.",
-  "panoptes\0PAN_SLATE_B.md": "Lines 1–160 were read. Lines 161–1042 were not."
+  "panoptes\0PAN_SLATE_B.md": "Lines 1–341 were read. Lines 342–1042 were not read line by line."
 };
 const state = { scope: "work", system: "", category: "", picked: null, dir: "", query: "", open: "" };
 let rows = [];
@@ -224,6 +223,7 @@ function classify(blocks) {
         category: categoryFor(system.id, file.path, file.kind),
         sha256: file.sha256 || "",
         sameAs: file.sameAs || [],
+        readNote: file.readNote || "",
         review: "none", note: ""
       });
     }
@@ -436,6 +436,7 @@ function draw() {
     host.append(button);
     if (state.open === key) {
       host.append(el("p", row.note || "No device note.", "note"));
+      if (row.readNote) host.append(el("p", row.readNote, "note"));
       if (row.sha256) host.append(el("p", "sha256 " + row.sha256, "note"));
       if (row.sameAs && row.sameAs.length) host.append(el("p", "same bytes as " + row.sameAs.join(" | "), "note"));
     }

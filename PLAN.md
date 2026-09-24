@@ -2,7 +2,7 @@
 
 Device wrote this on 2026-09-24. It replaces the earlier order in this file.
 
-Status after phase 3: every map row has a sha256. Hash groups and the bak-sibling list are in public/cli.json. 34 groups. 26 of those paths are empty files. 92 bak siblings differ from the live file beside them. 0 match. Nothing deleted. Phase 4, the two unread files, is not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
+Status after phase 4, partial: every map row has a sha256. Phase 3 groups and bak siblings are in public/cli.json. `assay/INGOT_ASSAY_v1.md` was read, lines 1–766, on 2026-09-24. It is doctrine, not a gate run of the three trees. `PAN_SLATE_B.md` was read through line 341. Lines 342–1042 were not read line by line. Phase 5 is not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
 
 A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A hash is not a reading of the body.
 
