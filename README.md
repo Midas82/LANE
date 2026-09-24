@@ -2,7 +2,7 @@
 
 File map of the three systems. Device writes the map. Web writes notes. Randy sees both.
 
-The build spec is [`DESIGN.md`](DESIGN.md). The page that is live now is the directory list. Web builds the charts from that spec. Web adds proposals under **Web additions** and does not rewrite the measured rules.
+The build spec is [`DESIGN.md`](DESIGN.md). The order for finishing the map is [`PLAN.md`](PLAN.md). Device writes both. Web adds proposals under **Web additions** and does not write the file rows.
 
 Open `index.html` on GitHub Pages, or serve this folder and open `/`. The page reads the two JSON files. A push updates the map. Refresh the page.
 

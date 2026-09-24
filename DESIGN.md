@@ -168,6 +168,8 @@ Leave these off the charts.
 5. Check the category totals against the tables in this file. If a bucket is short, stop and say which rule failed.
 6. Do not open forge. Do not read file bodies to invent a better category. Do not enable a new root.
 
+The full-map order is `PLAN.md`. Device writes that file.
+
 ## Out of scope
 
 No winners. No hybrid that deletes a file. No memory directory. No `sda` send. No read of the Grok v0.1 specs. No HTML written onto forge. The seam chair does not run.
