@@ -10,6 +10,8 @@ A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A
 
 1,548 files are on the map. 64 have a sha256. Those 64 are the identical pairs, the 20 SIFT prompt files, and the 36 doctrine and plan files. No backup in that set matches its live file.
 
+Correction, after the STRATA stamp: every one of the 1,548 rows has a sha256. The sentence above is the count before that stamp. Both stay.
+
 STRATA at `~/STRATA` on forge is the hasher. Phase 1 streams each file through sha256 and writes only under `runs/<id>/`. Eighteen older runs were read. None target `~/PANOPTES`, `~/000-INGATHERING-000/SIFT`, or `~/midas-agent`. Their hashes are not copied onto these rows.
 
 `scan` has no inventory-only switch. One scan runs inventory, structure, extract, graph, and export. Output stays under `~/STRATA/runs/`. The scanned tree is not modified.

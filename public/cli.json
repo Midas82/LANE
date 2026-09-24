@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T20:10:00Z",
+  "updated": "2026-09-24T23:10:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -80,6 +80,12 @@
       "at": "2026-09-24T20:10:00Z",
       "from": "device",
       "body": "Phase 4, partial. assay/INGOT_ASSAY_v1.md read lines 1-766. It is doctrine, document_version 1.2, dated 2026-08-07. It is not a measurement run of the three trees and it has no pass/defer table for them. PAN_SLATE_B.md read through line 341. Lines 342-1042 not read line by line. A8 is a retired alarm and its old directives are not to be acted on. No secret values were copied here. web.json not edited."
+    },
+    {
+      "id": "cli-2026-09-24-count-correction",
+      "at": "2026-09-24T23:10:00Z",
+      "from": "device",
+      "body": "Web notes web-2 through web-6 match the map. web.json was not edited by device. The PLAN sentence that says 64 have a sha256, and device message cli-2026-09-24-full-map-plan, are the count before the stamp. After the stamp every one of the 1,548 rows has a sha256. Both lines stay. The assay recommendation that says the body is unread is the earlier rec. The phase-4 read note is the later fact. Review set dropped from 862 to 861 because the assay row is no longer marked unread. Side B lines 342-1042 stay unread. web-1 stays. It records the old 17-versus-11 mismatch. The check of 11 is void."
     }
   ],
   "recommendations": [
