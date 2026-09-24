@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T19:20:00Z",
+  "updated": "2026-09-24T19:40:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -68,6 +68,12 @@
       "at": "2026-09-24T19:20:00Z",
       "from": "device",
       "body": "Phase 1 scans are complete. lane-panoptes-20260924 hashed 9865 files. The map has 635 because .git and virtualenvs were skipped. lane-sift-20260924 hashed 832 files, the same count as the map. lane-raphael-20260924 hashed 6579 files. The map has 81. Phase 2 stamped 1484 new sha256 values from those manifests. 64 rows already had a hash and it matched. Conflicts: 0. Rows still without a hash: 0. Bak files compared with a live sibling in the same directory: 0 same bytes, 92 different. Nothing deleted. Off-map paths were not added. June runs were not imported. web.json was not edited."
+    },
+    {
+      "id": "cli-2026-09-24-phase3",
+      "at": "2026-09-24T19:40:00Z",
+      "from": "device",
+      "body": "Phase 3 is on the rows' sibling lists, not a relay. 34 sha256 groups on the map (58 extra paths). One group is 26 empty files, hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Two groups are the Opus v1.0 and Sonnet v2.3 copies already named. 92 bak siblings next to a live file in the same directory. 0 same bytes, 92 different. Nothing deleted. web.json not edited."
     }
   ],
   "recommendations": [
@@ -9456,6 +9462,1168 @@
           "sha256": "e51b2cf5ec89a8b8470177641ed62a3ba22d74e1e898e06ad53aa77972487208"
         }
       ]
+    }
+  ],
+  "hashGroups": [
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "empty": true,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": ".remember/logs/hook-errors.log"
+        },
+        {
+          "system": "panoptes",
+          "path": ".remember/tmp/capture-alive.d/32f69976-5a84-47e2-8b25-a87459eb25d3"
+        },
+        {
+          "system": "panoptes",
+          "path": ".remember/tmp/capture-alive.d/efadf572-b7e5-4f1d-82a9-9176c7c5d75d"
+        },
+        {
+          "system": "panoptes",
+          "path": ".remember/tmp/post-tool-ran"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD2_2026-08-15_0102.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD3_2026-08-15_0111.t1.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD3_2026-08-15_0111.t2.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD4_2026-08-15_0227.t1.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD4_2026-08-15_0227.t2.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD5_2026-08-15_0513.t1.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD5_2026-08-15_0513.t2.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD5_2026-08-15_0513.t3.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD6_2026-08-15_0643.t1.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD7_2026-08-22_1346.t1.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD_FIS_2026-08-14_2338.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/OPUS_COLD_FIS_2026-08-14_2338.turn2.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "assay/handoff/SONNET_COLD_2026-08-15_0102.stderr.txt"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/TITAN_MAIN/New Empty File"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/TITAN_MAIN/New Empty File 1"
+        },
+        {
+          "system": "raphael",
+          "path": "archive/sessions/.gitkeep"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/probe_stdin.err"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/runner_50cb3886.err"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/runner_58b434ae.err"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/runner_6d7777b8.err"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/runner_fa1e8368.err"
+        },
+        {
+          "system": "sift",
+          "path": "results/the-309/_poc_run_2026-08-24/runner_faf09bff.err"
+        }
+      ]
+    },
+    {
+      "sha256": "d8c9a93d69a39e06505f72d399bdfb3bfe40ef53307e1f1625c9c6d34879e69f",
+      "bytes": 954,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": ".panoptes/skeleton/.panoptes/templates/BOOTSTRAP.md"
+        },
+        {
+          "system": "panoptes",
+          "path": ".panoptes/templates/BOOTSTRAP.md"
+        }
+      ]
+    },
+    {
+      "sha256": "70afc298639e941edfe64db6de94c65e6bc7a3847eb3c587dd54d0f2d744cd32",
+      "bytes": 841,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": ".panoptes/skeleton/.panoptes/templates/SLATE.md"
+        },
+        {
+          "system": "panoptes",
+          "path": ".panoptes/templates/SLATE.md"
+        }
+      ]
+    },
+    {
+      "sha256": "3646fa46fd881afb50a8fd60ef498528f801567f35d51b539c681a394c61ef0c",
+      "bytes": 748,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": ".panoptes/skeleton/.panoptes/templates/TREE.md"
+        },
+        {
+          "system": "panoptes",
+          "path": ".panoptes/templates/TREE.md"
+        }
+      ]
+    },
+    {
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "bytes": 37,
+      "empty": false,
+      "paths": [
+        {
+          "system": "raphael",
+          "path": ".pytest_cache/.gitignore"
+        },
+        {
+          "system": "raphael",
+          "path": "midas_agent/.pytest_cache/.gitignore"
+        }
+      ]
+    },
+    {
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "bytes": 191,
+      "empty": false,
+      "paths": [
+        {
+          "system": "raphael",
+          "path": ".pytest_cache/CACHEDIR.TAG"
+        },
+        {
+          "system": "raphael",
+          "path": "midas_agent/.pytest_cache/CACHEDIR.TAG"
+        }
+      ]
+    },
+    {
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302,
+      "empty": false,
+      "paths": [
+        {
+          "system": "raphael",
+          "path": ".pytest_cache/README.md"
+        },
+        {
+          "system": "raphael",
+          "path": "midas_agent/.pytest_cache/README.md"
+        }
+      ]
+    },
+    {
+      "sha256": "0383bdcec96765b8e12e7bde9f468364238a0ab7c4e441b4d9e1e39ab22ccdb7",
+      "bytes": 87,
+      "empty": false,
+      "paths": [
+        {
+          "system": "sift",
+          "path": "COLD/IN/fireloop-claude/MANIFEST.sha256"
+        },
+        {
+          "system": "sift",
+          "path": "COLD/STAGING/fireloop-claude/MANIFEST.sha256"
+        }
+      ]
+    },
+    {
+      "sha256": "513dfc3bf01f5fdbb5889d1f78210c0516d9c401f0277619c6d8331fc7d01465",
+      "bytes": 22361,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/COMEBACK_ENGINE_RECOVERED/CAL_serve/day1.html"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/COMEBACK_ENGINE_RECOVERED/CAL_stylo5/index.html"
+        }
+      ]
+    },
+    {
+      "sha256": "29cb7376b20b9828bc0d4b06234bbc109809abfc7739ab0a7d0f65a27b4a62cb",
+      "bytes": 21648,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/AI-PROMPTS.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/AI-PROMPTS.md"
+        }
+      ]
+    },
+    {
+      "sha256": "d45324d4c32f6b22336703199578687500a6d879e05063202673fc9b54418426",
+      "bytes": 89,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/CHANGELOG.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "sha256": "71a3f89fe51bddb4b04ae09c73ba558921cbf88d2138f459fb1e7ff108cfb001",
+      "bytes": 32387,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/EXAMPLE-INGOTS.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/EXAMPLE-INGOTS.md"
+        }
+      ]
+    },
+    {
+      "sha256": "0901beb9a8afc7ef62d83a33afdc3e5ef8afb26d4495abc6d2d8e3b7967eee84",
+      "bytes": 20173,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/HANDSHAKE.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/HANDSHAKE.md"
+        }
+      ]
+    },
+    {
+      "sha256": "980b7ce6712c5995b06ec6395577486dc71a62fdef64851743a35b2588dbea72",
+      "bytes": 37992,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/I.N.G.O.T. protocol_v1.5.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/I.N.G.O.T. protocol_v1.5.md"
+        }
+      ]
+    },
+    {
+      "sha256": "849fb9aba622e516eca7b44fde749903022c728e22196922087609e473d44804",
+      "bytes": 16971,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-0-PROSPECT.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-0-PROSPECT.md"
+        }
+      ]
+    },
+    {
+      "sha256": "26ba4b468257909d9d6b36f1fa68f2e5193a715c847b6be4553c5dea7b145c2a",
+      "bytes": 22315,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-1-ASSAY.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-1-ASSAY.md"
+        }
+      ]
+    },
+    {
+      "sha256": "1a61db4743961f7a48fea9f11edf7bb753e34f1dcb6590c5b00845cafbfae083",
+      "bytes": 22736,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-2-FORGE.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-2-FORGE.md"
+        }
+      ]
+    },
+    {
+      "sha256": "38892909172dc9f84105b386e4a1d56faaf59b17491afbe8182bc25e44fbff1e",
+      "bytes": 11878,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-3-CAST.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-3-CAST.md"
+        }
+      ]
+    },
+    {
+      "sha256": "97e57cf383157d5c0a5a3fad3892c7386941e3c2e3827e5b5483611aac992fef",
+      "bytes": 11375,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-4-TEMPER.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-4-TEMPER.md"
+        }
+      ]
+    },
+    {
+      "sha256": "828ac7d37d53309743488f2c8d56beb192daab3b3a2ddfc122b6fc892d15d97c",
+      "bytes": 8690,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-5-STAMP.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-5-STAMP.md"
+        }
+      ]
+    },
+    {
+      "sha256": "20d42d3a9bb11f76aaec5b788066d47a1d6393631c7a16b9c81203e84385589e",
+      "bytes": 14173,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-6-MINT.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-6-MINT.md"
+        }
+      ]
+    },
+    {
+      "sha256": "eb8a7344ad099a3595937040a39a34c9170046c4e88aca9dc595f70fb554b456",
+      "bytes": 9511,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-7-CIRCULATE.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-7-CIRCULATE.md"
+        }
+      ]
+    },
+    {
+      "sha256": "7c28c70be8854239041a88df9bfa56495f73de79a1c80933459a976b2b6e2edd",
+      "bytes": 10083,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-8-MAINTAIN.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-8-MAINTAIN.md"
+        }
+      ]
+    },
+    {
+      "sha256": "814a65016041754e9816cac5bb46c1534df562df3064d788601b937423279d19",
+      "bytes": 11335,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/LIFECYCLE-9-VAULT.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/LIFECYCLE-9-VAULT.md"
+        }
+      ]
+    },
+    {
+      "sha256": "075c722719bd4b0aa1b61ff6d8ca6143734f986414321a7eeadc45ab7c38e28a",
+      "bytes": 26597,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/RETROFIT.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/RETROFIT.md"
+        }
+      ]
+    },
+    {
+      "sha256": "6a8242796d758e52fc4aa15ee30120fc31f4bd6e29e7bc6074ea99381f4be943",
+      "bytes": 32676,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/SMELT-TEMPLATES.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/SMELT-TEMPLATES.md"
+        }
+      ]
+    },
+    {
+      "sha256": "00d8285849fd5dce31b4618c0c8c20875bf45284c92099fd05f3de92b69ff1f3",
+      "bytes": 29765,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/SMELT.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/SMELT.md"
+        }
+      ]
+    },
+    {
+      "sha256": "8571ca2790112c8c73f9ca3c93143d213ca9f711db0b718780b4dfe9f4f6e5b3",
+      "bytes": 419,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/USER_MANUAL.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/USER_MANUAL.md"
+        }
+      ]
+    },
+    {
+      "sha256": "ef777fb24a57c15d4e85963bcf9424345aff1992598cd2891bd894e688a7802e",
+      "bytes": 12251,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/I.N.G.O.T.-MAIN/docs/WORKFLOWS.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/I.N.G.O.T._Docs/WORKFLOWS.md"
+        }
+      ]
+    },
+    {
+      "sha256": "7e510f2dba67f621e41b0010aeb19d58594fd00213fa6d1159f86e1794c79750",
+      "bytes": 22985,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/SAVEGAME_PROTOCOL_v2.0.html"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/SAVEGAME_PROTOCOL_v2.1.PRE-DATEFIX-TRADEMARK.20260614.bak.html"
+        }
+      ]
+    },
+    {
+      "sha256": "f7ecbf8bb051c92e88747263c6088c8bd4dc9c99767b30736eb35deb2f0a9956",
+      "bytes": 5431,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/TITAN_MAIN/TITAN_PROTOCOL.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/TITAN_PROTOCOL.md"
+        }
+      ]
+    },
+    {
+      "sha256": "7e034a0cc39788deaa11848d87e69f053289d0c3e631d84b40cb8325e4477048",
+      "bytes": 5626,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/Archived/deity_test/config/prompts/deity-core-prompt.md"
+        },
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/DEITY_OF_SUCCESS-core-prompt.md"
+        }
+      ]
+    },
+    {
+      "sha256": "fb92775e73b062899b823492dd65296fc91ce2b41f71576b7e8d17b0df96b18e",
+      "bytes": 17167,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/OPUS_ARCHITECT_PROMPT_v1.0.md"
+        },
+        {
+          "system": "sift",
+          "path": "prompts/OPUS_ARCHITECT_PROMPT_v1.0.md"
+        }
+      ]
+    },
+    {
+      "sha256": "aa4d92db97f9c480fbf376e508918cb2b3de5912bdd80357d9d8b78ea6bbf3ec",
+      "bytes": 12351,
+      "empty": false,
+      "paths": [
+        {
+          "system": "panoptes",
+          "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/SONNET_SIFT_PROMPT_v2.3.md"
+        },
+        {
+          "system": "sift",
+          "path": "prompts/SONNET_SIFT_PROMPT_v2.3.md"
+        }
+      ]
+    }
+  ],
+  "bakSiblings": [
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260803-151648",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260805-203339",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260809-2004",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260809-2233",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260814-2320",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260818-rulezero",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-20260819-siftindex",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-assayindex-20260815-064637",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-charunits-20260827-1645",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-eyes-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-lanes-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/panoptes",
+      "bak": ".panoptes/bin/panoptes.bak-rzaudit-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/sonnets-gate",
+      "bak": ".panoptes/bin/sonnets-gate.bak-lanes-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/bin/sonnets-gate",
+      "bak": ".panoptes/bin/sonnets-gate.bak-premark-m-20260822",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/skeleton/.panoptes/bin/panoptes",
+      "bak": ".panoptes/skeleton/.panoptes/bin/panoptes.bak-100628",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": ".panoptes/skeleton/.panoptes/bin/panoptes",
+      "bak": ".panoptes/skeleton/.panoptes/bin/panoptes.bak-20260803-151914",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "CLAUDE.md",
+      "bak": "CLAUDE.md.bak-lanes-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "CLAUDE.md",
+      "bak": "CLAUDE.md.bak-prehands-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "PAN_SLATE_B.md",
+      "bak": "PAN_SLATE_B.md.bak-preseam-20260824-2152",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "REPAIR_QUEUE.md",
+      "bak": "REPAIR_QUEUE.md.bak-preseam-20260824-2158",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "SLATE_CLEARED.md",
+      "bak": "SLATE_CLEARED.md.bak-preseam-20260824-2152",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "THE_SLATE.md",
+      "bak": "THE_SLATE.md.bak-disk-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "THE_SLATE_CHAOS.md",
+      "bak": "THE_SLATE_CHAOS.md.bak-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "agents/SEAM_SEAT.md",
+      "bak": "agents/SEAM_SEAT.md.bak-lanes-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "agents/i..i.md",
+      "bak": "agents/i..i.md.bak-preintake3note-20260824-215234",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "agents/m..m.md",
+      "bak": "agents/m..m.md.bak-lanes-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "assay/SELF_AUDIT.jsonl",
+      "bak": "assay/SELF_AUDIT.jsonl.bak-yyexcavate5-20260825-0513",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/COMEBACK_ENGINE_RECOVERED/CAL_serve/index.html",
+      "bak": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/COMEBACK_ENGINE_RECOVERED/CAL_serve/index.html.bak-v04-093858",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY.md",
+      "bak": "trees/HOME/MEMORY.md.bak-20260822-trim",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY.md",
+      "bak": "trees/HOME/MEMORY.md.bak-bytetrim-20260827-1631",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY.md",
+      "bak": "trees/HOME/MEMORY.md.bak-ewmhrow-20260829-1059",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY.md",
+      "bak": "trees/HOME/MEMORY.md.bak-prehands-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY.md",
+      "bak": "trees/HOME/MEMORY.md.bak-preshells-20260828",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_B.md",
+      "bak": "trees/HOME/MEMORY_B.md.bak-20260822-trim",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_B.md",
+      "bak": "trees/HOME/MEMORY_B.md.bak-ewmhrow-20260829-1059",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-mm-20260825-0400",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-mm2-20260825-0530",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-mm3-20260825-0653",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-origin-20260825-0540",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-patredact-20260825-0715",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-predeliver-20260824",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/MEMORY_SIFT.md",
+      "bak": "trees/HOME/MEMORY_SIFT.md.bak-predelivery-20260824-0901",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/feedback_answers_in_the_os.md",
+      "bak": "trees/HOME/feedback_answers_in_the_os.md.bak-didntfire-20260825-0710",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/feedback_limit_forces_closure.md",
+      "bak": "trees/HOME/feedback_limit_forces_closure.md.bak-nolist-20260825-0650",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/feedback_no_assumptions.md",
+      "bak": "trees/HOME/feedback_no_assumptions.md.bak-prehands-20260829",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/feedback_quit_gating_my_shit.md",
+      "bak": "trees/HOME/feedback_quit_gating_my_shit.md.bak-gatequestion-20260825-0645",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_is_it_me_in_the_data.md",
+      "bak": "trees/HOME/finding_is_it_me_in_the_data.md.bak-inflation-20260825-0610",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_is_it_me_in_the_data.md",
+      "bak": "trees/HOME/finding_is_it_me_in_the_data.md.bak-split-20260825-0615",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_m_equals_8_to_the_first.md",
+      "bak": "trees/HOME/finding_m_equals_8_to_the_first.md.bak-genesis-20260825-0700",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_mirror_lineage.md",
+      "bak": "trees/HOME/finding_mirror_lineage.md.bak-tm-20260825-1005",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_the_90_percent_nag_was_manufactured.md",
+      "bak": "trees/HOME/finding_the_90_percent_nag_was_manufactured.md.bak-recited-20260825-0815",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_the_90_percent_nag_was_manufactured.md",
+      "bak": "trees/HOME/finding_the_90_percent_nag_was_manufactured.md.bak-tm-20260825-1005",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/finding_the_scanner_incident_2025_09.md",
+      "bak": "trees/HOME/finding_the_scanner_incident_2025_09.md.bak-friend-20260825-0640",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/hardware_forge.md",
+      "bak": "trees/HOME/hardware_forge.md.bak-cpurule-20260920",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/hardware_forge.md",
+      "bak": "trees/HOME/hardware_forge.md.bak-staleptr-20260825-0720",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/project_causemos_repo_isolation.md",
+      "bak": "trees/HOME/project_causemos_repo_isolation.md.bak-staleptr-20260825-0720",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/project_optimus_station.md",
+      "bak": "trees/HOME/project_optimus_station.md.bak-staleptr-20260825-0720",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/project_sillytavern.md",
+      "bak": "trees/HOME/project_sillytavern.md.bak-cpurule-20260920",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/reference_masterindex_map.md",
+      "bak": "trees/HOME/reference_masterindex_map.md.bak-hdomeara-20260825-0735",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/HOME/user_brand_trademark.md",
+      "bak": "trees/HOME/user_brand_trademark.md.bak-lineage-20260825-0600",
+      "same": false
+    },
+    {
+      "system": "panoptes",
+      "live": "trees/REGISTRY.md",
+      "bak": "trees/REGISTRY.md.bak-20260920",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-20260813-preroute",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-20260816-preexcavate",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-20260822-preroute",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-20260823-yy-f9",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-20260824-poc-signing",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-yeoman-append10-20260825-0632",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/LEDGER.jsonl",
+      "bak": "COLD/LEDGER.jsonl.bak-yyexcavate5-20260825-0513",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "COLD/README.md",
+      "bak": "COLD/README.md.bak-sealhold-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "FOREVER_SIFT_v1.md",
+      "bak": "FOREVER_SIFT_v1.md.bak-pre-s9-20260819",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/Audit Findings.md",
+      "bak": "inputs/Audit Findings.md.bak-cites-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/Handoff Template.md",
+      "bak": "inputs/Handoff Template.md.bak-cites-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/Workflow.md",
+      "bak": "inputs/Workflow.md.bak-liveloop-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/corpus_state/CORPUS_STATE.md",
+      "bak": "inputs/corpus_state/CORPUS_STATE.md.bak-directive10-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/corpus_state/CORPUS_STATE.md",
+      "bak": "inputs/corpus_state/CORPUS_STATE.md.bak-pre-husksplit-20260819",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/corpus_state/CORPUS_STATE.md",
+      "bak": "inputs/corpus_state/CORPUS_STATE.md.bak-precountrule-20260822",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/mission_brief/Mission Brief.md",
+      "bak": "inputs/mission_brief/Mission Brief.md.bak-cites-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "inputs/sacred_text/SACRED_TEXT.md",
+      "bak": "inputs/sacred_text/SACRED_TEXT.md.bak-intakeA-91to99-20260824",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/OPUS_ARCHITECT_PROMPT_v1.2.md",
+      "bak": "prompts/OPUS_ARCHITECT_PROMPT_v1.2.md.bak-A1patches-20260824-0746",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-P21-20260824-0350",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-P23patches-20260824-0746",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP32P37-20260825-0630",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP38-20260825-0705",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP39-20260825-0725",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
+      "bak": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-stepminus1banner-20260823-0102",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/2025-09-03_session-58b434ae_strategic-problem-solving/voice.jsonl",
+      "bak": "results/the-309/2025-09-03_session-58b434ae_strategic-problem-solving/voice.jsonl.bak-headerfix-20260824-0355",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/HANDOFF_2026-08-24.md",
+      "bak": "results/the-309/HANDOFF_2026-08-24.md.bak-preseamflare-20260824-2142",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/ROUTING_2026-08-24.md",
+      "bak": "results/the-309/ROUTING_2026-08-24.md.bak-preflare-20260824-0803",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/_husks/00_STATUS_READ_FIRST.md",
+      "bak": "results/the-309/_husks/00_STATUS_READ_FIRST.md.bak-preretire-20260819-2247",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/_husks/00_STATUS_READ_FIRST.md",
+      "bak": "results/the-309/_husks/00_STATUS_READ_FIRST.md.bak-preseam-20260824-2145",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/_husks/_retired/0b79e74d-da50-4158-9351-6c11e4895e14.md",
+      "bak": "results/the-309/_husks/_retired/0b79e74d-da50-4158-9351-6c11e4895e14.md.bak-20260819",
+      "same": false
+    },
+    {
+      "system": "sift",
+      "live": "results/the-309/_remaining_2026-08-24.txt",
+      "bak": "results/the-309/_remaining_2026-08-24.txt.bak-preseam-20260824-2150",
+      "same": false
     }
   ]
 }

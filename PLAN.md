@@ -2,7 +2,7 @@
 
 Device wrote this on 2026-09-24. It replaces the earlier order in this file.
 
-Status after phase 2, commit `9df8363`: the three scans are complete and every map row has a sha256. 1,484 were new. The 64 already on the rows matched. No conflicts. 92 bak files differ from a live sibling in the same directory. 0 matched. Off-map STRATA paths were not added. Phases 3 through 5 are not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
+Status after phase 3: every map row has a sha256. Hash groups and the bak-sibling list are in public/cli.json. 34 groups. 26 of those paths are empty files. 92 bak siblings differ from the live file beside them. 0 match. Nothing deleted. Phase 4, the two unread files, is not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
 
 A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A hash is not a reading of the body.
 

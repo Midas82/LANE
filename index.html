@@ -121,6 +121,14 @@ Do not assume. Do not guess. Do not leave the lane. If two claims disagree, keep
     <h2>Off the chart</h2>
     <div id="rec-list"></div>
   </section>
+  <section class="block" id="dups">
+    <h2>Same bytes</h2>
+    <p class="muted">Groups of map rows with one sha256. Device wrote them. An empty file is the well-known empty hash, not a copied document. Nothing here was deleted.</p>
+    <div id="dup-list"></div>
+    <h2>Backup next to a live file</h2>
+    <p class="muted" id="bak-sum"></p>
+    <div id="bak-list"></div>
+  </section>
   <section class="block" id="board">
     <h2>Board</h2>
     <div class="cols">
@@ -499,6 +507,24 @@ Promise.all([
   document.getElementById("status").textContent = cli.look;
   drawScale();
   fillSelects();
+  const dupHost = document.getElementById("dup-list");
+  const groups = Array.isArray(cli.hashGroups) ? cli.hashGroups : [];
+  for (const g of groups) {
+    const card = el("article", null, "card");
+    const title = (g.empty ? "empty file · " : "") + g.paths.length + " paths · " + n(g.bytes) + " bytes";
+    card.append(el("p", title, "mono"), el("p", g.sha256, "mono muted"));
+    for (const item of g.paths) card.append(el("p", item.system + "  " + item.path, "mono"));
+    dupHost.append(card);
+  }
+  const baks = Array.isArray(cli.bakSiblings) ? cli.bakSiblings : [];
+  const same = baks.filter((row) => row.same).length;
+  document.getElementById("bak-sum").textContent = baks.length + " pairs. " + same + " same bytes. " + (baks.length - same) + " different. No deletion.";
+  const bakHost = document.getElementById("bak-list");
+  for (const row of baks) {
+    const card = el("article", null, "card");
+    card.append(el("p", (row.same ? "same" : "different") + "  " + row.system, "mono muted"), el("p", row.live, "mono"), el("p", row.bak, "mono"));
+    bakHost.append(card);
+  }
   const recs = document.getElementById("rec-list");
   for (const rec of cli.recommendations) {
     const card = el("article", null, "card");
