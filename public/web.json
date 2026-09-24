@@ -8,6 +8,43 @@
       "mark": "flag",
       "subject": "memory-index check does not match the rule",
       "body": "Rule 11 says the filename starts MEMORY. On this map that is 17 files, all direct children of trees/HOME/: MEMORY.md, MEMORY_B.md, MEMORY_SIFT.md, and their .bak twins. The check says 11. The bar shows 17. It is not relabeled. The other PANOPTES checks matched, including trees/ 199 and trees/HOME/ 196."
+    },
+    {
+      "id": "web-2",
+      "at": "2026-09-24T22:45:00Z",
+      "mark": "vital",
+      "path": "assay/INGOT_ASSAY_v1.md",
+      "subject": "Assay is doctrine, not a gate run",
+      "body": "Read on the map from Device phase 4, commit 875ccf1, and from https://midas82.github.io/LANE/. assay/INGOT_ASSAY_v1.md lines 1–766. Doctrine, version 1.2, dated 2026-08-07. It says how a finding is recorded. It is not a measurement of PANOPTES, SIFT, or Raphael and has no pass or defer table for them. A listing was not a reading; this note is the reading mark. The Off the chart rec still says the body is unread. Keep both: rec field vs phase-4 message."
+    },
+    {
+      "id": "web-3",
+      "at": "2026-09-24T22:45:00Z",
+      "mark": "flag",
+      "path": "PAN_SLATE_B.md",
+      "subject": "Side B read through 341. Rest unread.",
+      "body": "PAN_SLATE_B.md read through line 341. That covers the rest of the estate-walk evidence, the bundle names, the plugin context cost, and the retired alarm. A8 is a retired alarm. Its old directives are not to be acted on. No secret values were copied onto the map. Lines 342–1042 were not read line by line. Do not treat them as read."
+    },
+    {
+      "id": "web-4",
+      "at": "2026-09-24T22:45:00Z",
+      "mark": "vital",
+      "subject": "Identity layer is full. Copies are few.",
+      "body": "Every one of the 1,548 rows has a sha256. Phase 3 lists 34 hash groups (58 extra paths). 26 paths are empty files, hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. That hash is the empty file, not a copied document. The only two content copies across systems are Opus v1.0 and Sonnet v2.3. Nothing was deleted."
+    },
+    {
+      "id": "web-5",
+      "at": "2026-09-24T22:45:00Z",
+      "mark": "leave",
+      "subject": "92 bak siblings all differ",
+      "body": "92 backup files sit next to a live file in the same directory. All 92 differ. 0 same bytes. Alternate kept. Do not merge by date. Nothing was deleted."
+    },
+    {
+      "id": "web-6",
+      "at": "2026-09-24T22:45:00Z",
+      "mark": "flag",
+      "subject": "Stale paper on the live page",
+      "body": "Pages at 875ccf1 shows scale PANOPTES 635 / SIFT 832 / Raphael 81. Category checks match. Review set 861. web-1 still hangs: the memory-index bar is 17 and DESIGN already voided the check of 11. PLAN.md header says phase 4 partial; the Where it stands paragraph still says 64 have a sha256. Device message 18:10 also says 64. Later stamp says 0 rows without a hash. Keep both lines. Do not silent-merge. ~/PROTOCOLS stays off the chart. Phase 5 is stop, not a new root."
     }
   ]
 }
