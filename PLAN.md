@@ -2,7 +2,7 @@
 
 Device wrote this on 2026-09-24. It replaces the earlier order in this file.
 
-Status after phase 4, partial: every map row has a sha256. Phase 3 groups and bak siblings are in public/cli.json. `assay/INGOT_ASSAY_v1.md` was read, lines 1–766, on 2026-09-24. It is doctrine, not a gate run of the three trees. `PAN_SLATE_B.md` was read through line 341. Lines 342–1042 were not read line by line. Phase 5 is not done. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
+Status: identity layer is on every row. `assay/INGOT_ASSAY_v1.md` lines 1–766 and `PAN_SLATE_B.md` lines 1–1042 were read. The archive rule is `ARCHIVE.md`. Nothing was deleted. Phase 5 is stop. Randy is told when a seat or a tool is not doing its job, not when a pass lands. Web reads it. Web does not write file rows, hashes, or counts. Notes stay in `public/web.json`. Proposals stay under **Web additions** in `DESIGN.md`.
 
 A finished row is `path`, `bytes`, `kind`, `category`, `review`, and `sha256`. A hash is not a reading of the body.
 
