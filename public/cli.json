@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-23T21:10:00Z",
+  "updated": "2026-09-24T04:57:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -20,6 +20,12 @@
       "at": "2026-09-23T21:10:00Z",
       "from": "device",
       "body": "Cross-system repeated names are 8. Different byte sizes are not the same file: .gitignore (6 sizes), __init__.py (7 sizes), install.sh 234 vs 844, requirements.txt 663 vs 55, MANIFEST.sha256 3102 / 87 / 87 / 36701 / 7060, README.md many sizes. Same size, hash not taken because forge did not answer: OPUS_ARCHITECT_PROMPT_v1.0.md 17167 in PANOPTES offsite PROTOCOLS and SIFT prompts; SONNET_SIFT_PROMPT_v2.3.md 12351 in both; two SIFT fireloop MANIFEST.sha256 at 87 bytes; two Raphael pytest README.md at 302 bytes. Same size is not yet same bytes."
+    },
+    {
+      "id": "cli-2026-09-24-dup-hash",
+      "at": "2026-09-24T04:57:00Z",
+      "from": "device",
+      "body": "Forge answered. Four same-size pairs are the same bytes. OPUS_ARCHITECT_PROMPT_v1.0.md sha256 fb92775e73b062899b823492dd65296fc91ce2b41f71576b7e8d17b0df96b18e in PANOPTES offsite PROTOCOLS snapshot 20260813 and in SIFT prompts/. SONNET_SIFT_PROMPT_v2.3.md sha256 aa4d92db97f9c480fbf376e508918cb2b3de5912bdd80357d9d8b78ea6bbf3ec in both of those places. SIFT COLD/IN/fireloop-claude/MANIFEST.sha256 and COLD/STAGING/fireloop-claude/MANIFEST.sha256 are both sha256 0383bdcec96765b8e12e7bde9f468364238a0ab7c4e441b4d9e1e39ab22ccdb7 and name fireloop claude.docx. The two Raphael .pytest_cache/README.md files are sha256 73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad. That README is pytest's own cache note and says not to commit it. Nothing deleted. The other repeated names stay different sizes, so they are not these copies."
     }
   ],
   "recommendations": [
