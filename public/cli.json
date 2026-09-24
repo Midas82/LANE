@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-24T05:10:00Z",
+  "updated": "2026-09-24T05:40:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -32,6 +32,12 @@
       "at": "2026-09-24T05:10:00Z",
       "from": "device",
       "body": "The two 37-byte .gitignore files are the same bytes. sha256 3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd. Paths: ~/midas-agent/.pytest_cache/.gitignore and ~/midas-agent/midas_agent/.pytest_cache/.gitignore. Both say they were created by pytest and ignore everything in that directory. Nothing deleted. The other .gitignore sizes remain different files."
+    },
+    {
+      "id": "cli-2026-09-24-prompt-hashes",
+      "at": "2026-09-24T05:40:00Z",
+      "from": "device",
+      "body": "SIFT prompts/ hashed, 20 files, sha256 now on those rows. The 13 files that are not bak each have a different hash. Live SONNET_SIFT_PROMPT_v2.8.md is 96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc. None of its 6 bak files match that hash. The same hash is the sidecar on two at ~/000-MIDAS-000/000-INGATHERING-000/SIFT/prompts/SONNET_SIFT_PROMPT_v2.8.sha256. The v2.8 body was not copied onto two. Opus v1.0 and Sonnet v2.3 rows now carry the hashes already shown to match the 2026-08-13 offsite copies."
     }
   ],
   "recommendations": [
@@ -1642,7 +1648,11 @@
         {
           "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/OPUS_ARCHITECT_PROMPT_v1.0.md",
           "bytes": 17167,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "fb92775e73b062899b823492dd65296fc91ce2b41f71576b7e8d17b0df96b18e",
+          "sameAs": [
+            "sift:prompts/OPUS_ARCHITECT_PROMPT_v1.0.md"
+          ]
         },
         {
           "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/PORT_REGISTRY.md",
@@ -1662,7 +1672,11 @@
         {
           "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/SONNET_SIFT_PROMPT_v2.3.md",
           "bytes": 12351,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "aa4d92db97f9c480fbf376e508918cb2b3de5912bdd80357d9d8b78ea6bbf3ec",
+          "sameAs": [
+            "sift:prompts/SONNET_SIFT_PROMPT_v2.3.md"
+          ]
         },
         {
           "path": "offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/TITAN_PROTOCOL.md",
@@ -3353,7 +3367,11 @@
         {
           "path": "COLD/IN/fireloop-claude/MANIFEST.sha256",
           "bytes": 87,
-          "kind": "other"
+          "kind": "other",
+          "sha256": "0383bdcec96765b8e12e7bde9f468364238a0ab7c4e441b4d9e1e39ab22ccdb7",
+          "sameAs": [
+            "sift:COLD/STAGING/fireloop-claude/MANIFEST.sha256"
+          ]
         },
         {
           "path": "COLD/IN/fireloop-claude/fireloop claude.docx",
@@ -3368,7 +3386,11 @@
         {
           "path": "COLD/STAGING/fireloop-claude/MANIFEST.sha256",
           "bytes": 87,
-          "kind": "other"
+          "kind": "other",
+          "sha256": "0383bdcec96765b8e12e7bde9f468364238a0ab7c4e441b4d9e1e39ab22ccdb7",
+          "sameAs": [
+            "sift:COLD/IN/fireloop-claude/MANIFEST.sha256"
+          ]
         },
         {
           "path": "COLD/STAGING/fireloop-claude/RECEIPT.md",
@@ -3503,102 +3525,128 @@
         {
           "path": "prompts/OPUS_ARCHITECT_PROMPT_v1.0.md",
           "bytes": 17167,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "fb92775e73b062899b823492dd65296fc91ce2b41f71576b7e8d17b0df96b18e",
+          "sameAs": [
+            "panoptes:offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/OPUS_ARCHITECT_PROMPT_v1.0.md"
+          ]
         },
         {
           "path": "prompts/OPUS_ARCHITECT_PROMPT_v1.1.md",
           "bytes": 20807,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "a70e0f2a2ecfd4ac1302db0dc177cf9660c4bb79b4d4faf721f3bcec2ea33471"
         },
         {
           "path": "prompts/OPUS_ARCHITECT_PROMPT_v1.2.md",
           "bytes": 43242,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "490c6a3bb2e0ad778e099731a29406ada8c967062f034f313c8a4f4741c0b101"
         },
         {
           "path": "prompts/OPUS_ARCHITECT_PROMPT_v1.2.md.bak-A1patches-20260824-0746",
           "bytes": 32619,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "6cb06580e92dcb1c329fc749a37c09da0d8fe757c56fe6bfbc3942090421458e"
         },
         {
           "path": "prompts/ORCHESTRATOR_PROMPT_v1.0.md",
           "bytes": 7821,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "36c96614095e5fb588f2f04d4e36503bbd4c94a2c809350fa28b87eac89e30c6"
         },
         {
           "path": "prompts/ORCHESTRATOR_PROMPT_v1.1.md",
           "bytes": 11931,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "eb3d374ea9c4004728630e8643a714ede18aeb88b61b6ca1dbaa6920959c8cc4"
         },
         {
           "path": "prompts/ORCHESTRATOR_PROMPT_v1.2.md",
           "bytes": 22273,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "3f6dcea32286a8692b196e9c50e208ad97d20e4b9652cb06a5c2d21be5833f32"
         },
         {
           "path": "prompts/PATCHES_P32-P37_PROPOSED_2026-08-25.md",
           "bytes": 13140,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "89c9115baf55c6fe9c67fbe2b12bdf670913824c867c41d296d2ee2c6818f42b"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.3.md",
           "bytes": 12351,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "aa4d92db97f9c480fbf376e508918cb2b3de5912bdd80357d9d8b78ea6bbf3ec",
+          "sameAs": [
+            "panoptes:offsite/000-IMPORTANT-000_snapshot_20260813-1548/PROTOCOLS/SONNET_SIFT_PROMPT_v2.3.md"
+          ]
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.4.md",
           "bytes": 16973,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "7d4349e9dab131d5eb5b35d99dc636746b104af703c9c32397797530d0e7d743"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.5.md",
           "bytes": 23389,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "e3a04e815e5f81b0619b0ad28d2989df9fb63bb27a738d4a6d3ff7dcff821b2b"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.6.md",
           "bytes": 29738,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "784a911f29c4da933ce7c5f66ed5d0f99190fc083ac84b3c416cd13e4fd8035d"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.7.md",
           "bytes": 58587,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "fd778203d8d7770860fe739524e051c3a27176858d7dd9def1a65f6a89066bd0"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md",
           "bytes": 145817,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "96e7b415043bcf72c1fa0eda899df281afa489bebab3d786889e1739623305dc"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-P21-20260824-0350",
           "bytes": 108312,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "7861cde1a9d2bbaf8921cb28b41a60f9449b50e0405d990fcb292bb130b0e6b8"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-P23patches-20260824-0746",
           "bytes": 110582,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "8fb7d599cea5712a30fc66b72e419587450323ced3d80bfbc1c11d472f72ee13"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP32P37-20260825-0630",
           "bytes": 133071,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "6b59fbaccd24ce604f306020f3bdcaf6789e2a2a6c9e8ab648411c5343c9a7da"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP38-20260825-0705",
           "bytes": 140742,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "1cb8c125432f6a01e3d7ab068556220e6892371e5e89350e0d8206f89f91595f"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-preP39-20260825-0725",
           "bytes": 143007,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "1ea4af8569dbd92b4dab09ec2a54bab57924adced23db95f40d59732aa78ca2d"
         },
         {
           "path": "prompts/SONNET_SIFT_PROMPT_v2.8.md.bak-stepminus1banner-20260823-0102",
           "bytes": 106811,
-          "kind": "bak"
+          "kind": "bak",
+          "sha256": "4cb407f7c02ab2a82cba55446b702b829b595f6ec6f13fdd18e346ef8fa9149e"
         },
         {
           "path": "results/2025-08-06_session-unknown_fireloop-claude-ui/extraction.md",
@@ -7529,7 +7577,11 @@
         {
           "path": ".pytest_cache/.gitignore",
           "bytes": 37,
-          "kind": "other"
+          "kind": "other",
+          "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+          "sameAs": [
+            "raphael:midas_agent/.pytest_cache/.gitignore"
+          ]
         },
         {
           "path": ".pytest_cache/CACHEDIR.TAG",
@@ -7539,7 +7591,11 @@
         {
           "path": ".pytest_cache/README.md",
           "bytes": 302,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+          "sameAs": [
+            "raphael:midas_agent/.pytest_cache/README.md"
+          ]
         },
         {
           "path": ".pytest_cache/v/cache/lastfailed",
@@ -7659,7 +7715,11 @@
         {
           "path": "midas_agent/.pytest_cache/.gitignore",
           "bytes": 37,
-          "kind": "other"
+          "kind": "other",
+          "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+          "sameAs": [
+            "raphael:.pytest_cache/.gitignore"
+          ]
         },
         {
           "path": "midas_agent/.pytest_cache/CACHEDIR.TAG",
@@ -7669,7 +7729,11 @@
         {
           "path": "midas_agent/.pytest_cache/README.md",
           "bytes": 302,
-          "kind": "md"
+          "kind": "md",
+          "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+          "sameAs": [
+            "raphael:.pytest_cache/README.md"
+          ]
         },
         {
           "path": "midas_agent/.pytest_cache/v/cache/nodeids",

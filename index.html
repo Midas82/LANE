@@ -214,6 +214,8 @@ function classify(blocks) {
         path: file.path, bytes: file.bytes, kind: file.kind,
         system: system.id, systemName: system.name, root: system.root,
         category: categoryFor(system.id, file.path, file.kind),
+        sha256: file.sha256 || "",
+        sameAs: file.sameAs || [],
         review: "none", note: ""
       });
     }
@@ -424,7 +426,11 @@ function draw() {
     }
     button.addEventListener("click", () => { state.open = state.open === key ? "" : key; draw(); });
     host.append(button);
-    if (state.open === key) host.append(el("p", row.note || "No device note.", "note"));
+    if (state.open === key) {
+      host.append(el("p", row.note || "No device note.", "note"));
+      if (row.sha256) host.append(el("p", "sha256 " + row.sha256, "note"));
+      if (row.sameAs && row.sameAs.length) host.append(el("p", "same bytes as " + row.sameAs.join(" | "), "note"));
+    }
   }
 }
 function fillSelects() {
