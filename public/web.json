@@ -35,7 +35,7 @@
     {
       "id": "web-5",
       "at": "2026-09-24T22:45:00Z",
-      "mark": "leave",
+      "mark": "noise",
       "subject": "92 bak siblings all differ",
       "body": "92 backup files sit next to a live file in the same directory. All 92 differ. 0 same bytes. Alternate kept. Do not merge by date. Nothing was deleted."
     },
