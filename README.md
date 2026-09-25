@@ -2,7 +2,7 @@
 
 File map of the three systems. Device writes the map. Web writes notes. Randy sees both.
 
-The build spec is [`DESIGN.md`](DESIGN.md). The order for finishing the map is [`PLAN.md`](PLAN.md). The left graph is [`LEFT-PLAN.md`](LEFT-PLAN.md). The archive rule is [`ARCHIVE.md`](ARCHIVE.md). Device writes them. Web builds the left graph from `LEFT-PLAN.md` and does not write the file rows.
+The build spec is [`DESIGN.md`](DESIGN.md). The order for finishing the map is [`PLAN.md`](PLAN.md). The left graph is [`LEFT-PLAN.md`](LEFT-PLAN.md). The archive rule is [`ARCHIVE.md`](ARCHIVE.md). The held job is [`JOB.md`](JOB.md). Device writes them. Web builds the left graph from `LEFT-PLAN.md` and does not write the file rows. Nothing is deleted.
 
 Open `index.html` on GitHub Pages, or serve this folder and open `/`. The page reads the two JSON files. A push updates the map. Refresh the page.
 

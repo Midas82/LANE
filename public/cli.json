@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-25T00:20:00Z",
+  "updated": "2026-09-25T02:00:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -98,6 +98,12 @@
       "at": "2026-09-25T00:20:00Z",
       "from": "device",
       "body": "LEFT-PLAN.md is the graph of what is left of the three. Live roots sum to 362003005 bytes. 109824539 are on the map. 252178466 are inside those roots and not on the map. Eleven other forms sum to 294079315 bytes and are not added to the live total. Anvil_Sift as a whole is 23450469821 bytes and is not a SIFT bar. The rest of the disk is not this graph. Web builds from that file. web.json not edited."
+    },
+    {
+      "id": "cli-2026-09-25-hold",
+      "at": "2026-09-25T02:00:00Z",
+      "from": "device",
+      "body": "Held 2026-09-25. Forge is off. JOB.md is the resume. Nothing is deleted. A matching hash does not permit removal. Previous bytes move to that tree's archive. The drive-size template is not a whole-disk scan. Box size for /home was not measured. Tomorrow reviews what deserves a place. web.json not edited."
     }
   ],
   "recommendations": [
