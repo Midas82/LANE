@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-25T16:52:50Z",
+  "updated": "2026-09-25T17:10:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -110,6 +110,12 @@
       "at": "2026-09-25T16:52:50Z",
       "from": "device",
       "body": "Resume 2026-09-25T16:52:50Z. Forge answered. Box is /dev/sda 1024209543168 bytes. /dev/sda2 btrfs ARCH_MINT_GOLD 1023671271424 bytes, mounted /home as @home. df used 764595011584, free 257109360640, 75%. Subvolume list was not permitted, so used is the filesystem total, not a proven exclusive size of @home. The three live roots remain 362003005 bytes from 2026-09-24. Birth and modify times for the named holdings are in JOB.md. Birth clusters on 2026-08-17 and is not the authoring date. Nothing deleted. web.json not edited."
+    },
+    {
+      "id": "cli-2026-09-25-subvols",
+      "at": "2026-09-25T17:10:00Z",
+      "from": "device",
+      "body": "Subvolumes on /dev/sda2: @ mounted /, @home mounted /home, @home_SEND_20260817-142812 mounted /mnt/oldhome, and three not mounted: @home_mint_20260817-2127, @home_SEND_20260817-215004, @home_SEND_20260817-230353. Quotas are not enabled. Used 764595011584 remains the whole filesystem. Nothing deleted."
     }
   ],
   "recommendations": [

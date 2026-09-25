@@ -4,7 +4,18 @@ Resume logged 2026-09-25T16:52:50Z. Forge hostname `forge` answered. Local clock
 
 ## Box
 
-Measured 2026-09-25T16:52:50Z. `btrfs subvolume list` was not permitted, so used and free are the whole filesystem `df` shows for `/home`, not a proven exclusive size of subvolume `@home`.
+Measured 2026-09-25T16:52:50Z. Used and free are the whole `sda2` filesystem. Quotas are not enabled, so there is no exclusive size for `@home`.
+
+Subvolumes on `/dev/sda2`, listed 2026-09-25:
+
+| ID | Path | Mounted |
+|---|---|---|
+| 256 | `@` | `/` |
+| 260 | `@home` | `/home` |
+| 258 | `@home_SEND_20260817-142812` | `/mnt/oldhome` |
+| 257 | `@home_mint_20260817-2127` | no |
+| 259 | `@home_SEND_20260817-215004` | no |
+| 261 | `@home_SEND_20260817-230353` | no |
 
 | | |
 |---|---|
