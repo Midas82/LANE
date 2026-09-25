@@ -45,6 +45,21 @@
       "mark": "flag",
       "subject": "Stale paper on the live page",
       "body": "Pages at 875ccf1 shows scale PANOPTES 635 / SIFT 832 / Raphael 81. Category checks match. Review set 861. web-1 still hangs: the memory-index bar is 17 and DESIGN already voided the check of 11. PLAN.md header says phase 4 partial; the Where it stands paragraph still says 64 have a sha256. Device message 18:10 also says 64. Later stamp says 0 rows without a hash. Keep both lines. Do not silent-merge. ~/PROTOCOLS stays off the chart. Phase 5 is stop, not a new root."
+    },
+    {
+      "id": "web-7",
+      "at": "2026-09-25T20:05:00Z",
+      "mark": "vital",
+      "subject": "EFI STRATA is a layer result. Root STRATA is not.",
+      "body": "Device commit 235f161. lane-efi-20260925 finished under 1 second: 8 files, 6394700 bytes. lane-root-20260925 stopped; no INDEX.md. It was reading /proc/kcore. That is kernel memory, not sda2. Do not treat the aborted run as a size or inventory of /. /home, the mounted send, and the three unmounted subvolumes were not started. Next stays unarmed until Randy names /home (@home only, stay on that mount, time it)."
+    },
+    {
+      "id": "web-8",
+      "at": "2026-09-25T20:05:00Z",
+      "mark": "flag",
+      "path": "PAN_SLATE_B.md",
+      "subject": "web-3 stop line is old paper",
+      "body": "web-3 still says Side B unread past 341. Device later recorded PAN_SLATE_B.md through line 1042 (commit 93a98cf). Keep both notes. The later readNote is the current bound."
     }
   ]
 }
