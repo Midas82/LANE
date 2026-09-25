@@ -60,6 +60,13 @@
       "path": "PAN_SLATE_B.md",
       "subject": "web-3 stop line is old paper",
       "body": "web-3 still says Side B unread past 341. Device later recorded PAN_SLATE_B.md through line 1042 (commit 93a98cf). Keep both notes. The later readNote is the current bound."
+    },
+    {
+      "id": "web-9",
+      "at": "2026-09-25T20:36:00Z",
+      "mark": "vital",
+      "subject": "lane-home-20260925 start is valid. No layer result yet.",
+      "body": "Device report 2026-09-25: one scan on forge. Target /home/midas. Out /tmp/strata-lane-home-20260925 on /dev/sda2[/@], not @home. Start 2026-09-25T20:13:17Z. At 20:13:47Z INDEX.md did not exist. No file count, byte sum, or elapsed. cli.json row correctly withheld. Do not treat this as a finished home inventory. When INDEX.md exists: copy INDEX.md and files_manifest.tsv to two ~/artifacts/strata-lane-home-20260925/ and write one cli.json row from those numbers. Clock vs claimed 1TB/8min is a later check against elapsed, not a stop."
     }
   ]
 }
