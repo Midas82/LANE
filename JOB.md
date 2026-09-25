@@ -2,6 +2,28 @@
 
 Resume logged 2026-09-25T16:52:50Z. Forge hostname `forge` answered. Local clock 2026-09-25T10:52:50-0600.
 
+## Map
+
+Logged 2026-09-25. The box stays in the map. Partition sizes stay in the map. One layer inside each partition is below them.
+
+`du` of the mounted subvolumes counts bytes the filesystem can share. Their sum is larger than `df` used. That is not extra space. Quotas are off, so there is no exclusive size. Three subvolumes are not mounted and were not walked.
+
+| Layer | Name | Bytes |
+|---|---|---:|
+| Box | `/dev/sda` | 1,024,209,543,168 |
+| Partition | `/dev/sda1` `AMG_EFI` | 536,870,912 |
+| Inside sda1 | `/boot/efi` | 6,438,912 |
+| Inside sda1 | `/boot/efi/EFI` | 6,434,816 |
+| Partition | `/dev/sda2` `ARCH_MINT_GOLD` | 1,023,671,271,424 |
+| sda2 used | `df` of `/home` | 764,595,011,584 |
+| sda2 free | `df` of `/home` | 257,109,360,640 |
+| Subvolume `@` | mounted `/` | 38,447,865,856 |
+| Subvolume `@home` | mounted `/home` | 530,280,816,640 |
+| Subvolume `@home_SEND_20260817-142812` | mounted `/mnt/oldhome` | 246,082,322,432 |
+| Subvolume `@home_mint_20260817-2127` | not mounted | not walked |
+| Subvolume `@home_SEND_20260817-215004` | not mounted | not walked |
+| Subvolume `@home_SEND_20260817-230353` | not mounted | not walked |
+
 ## Layer 1
 
 The box is the disk `/dev/sda`. One layer in is the partitions, not a home directory.

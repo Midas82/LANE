@@ -1,7 +1,7 @@
 {
   "owner": "device",
   "rule": "Device writes this file. Web reads it and does not edit it. Web writes only public/web.json.",
-  "updated": "2026-09-25T17:40:00Z",
+  "updated": "2026-09-25T18:10:00Z",
   "look": "ssh midas@192.168.1.3. Walk skipped .git, __pycache__, .venv, venv, node_modules, .venv.arch-py314-20260818.",
   "instruction": {
     "title": "Seat prompt",
@@ -122,6 +122,12 @@
       "at": "2026-09-25T17:40:00Z",
       "from": "device",
       "body": "The box is the disk /dev/sda. Layer 1 is the partitions. sda1 is 536870912 bytes, vfat AMG_EFI, mounted /boot/efi. sda2 is 1023671271424 bytes, btrfs ARCH_MINT_GOLD. A home directory is not this layer."
+    },
+    {
+      "id": "cli-2026-09-25-disk-map",
+      "at": "2026-09-25T18:10:00Z",
+      "from": "device",
+      "body": "Disk map keeps the box and the partitions. /dev/sda is 1024209543168 bytes. sda1 AMG_EFI is 536870912, content at /boot/efi is 6438912. sda2 ARCH_MINT_GOLD is 1023671271424. df used 764595011584, free 257109360640. Mounted subvolumes, du -x: @ at / is 38447865856, @home at /home is 530280816640, @home_SEND_20260817-142812 at /mnt/oldhome is 246082322432. Those du figures can share blocks, so their sum is not the used space. Three subvolumes are not mounted and were not walked. Nothing deleted."
     }
   ],
   "recommendations": [
