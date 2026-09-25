@@ -2,6 +2,15 @@
 
 Resume logged 2026-09-25T16:52:50Z. Forge hostname `forge` answered. Local clock 2026-09-25T10:52:50-0600.
 
+## Layer 1
+
+The box is the disk `/dev/sda`. One layer in is the partitions, not a home directory.
+
+| Partition | Size in bytes | Type | Label | Mount |
+|---|---:|---|---|---|
+| `/dev/sda1` | 536,870,912 | vfat | `AMG_EFI` | `/boot/efi` |
+| `/dev/sda2` | 1,023,671,271,424 | btrfs | `ARCH_MINT_GOLD` | the filesystem that carries `/` and `/home` |
+
 ## Box
 
 Measured 2026-09-25T16:52:50Z. Used and free are the whole `sda2` filesystem. Quotas are not enabled, so there is no exclusive size for `@home`.
